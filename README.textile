@@ -1,0 +1,3 @@
+h1. OJ
+
+OJ is the Rails application behind "Two Bob's Worth":http://twobobsworth.org, which is being built as part of the first Australian "Social Innovation Camp":http://www.asix.org.au/sicamp.
