@@ -143,8 +143,8 @@ p span.name{
 
 a, a:visited{
 	color: #999;
-	text-decoration:none;
 }
+
 a:hover {
 	color:#666;
 }
