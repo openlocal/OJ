@@ -27,7 +27,7 @@
         geocoder.getLatLng('<%= @job_request.location %>',
           function(point) {
             if (!point) {
-              alert(address + " not found");
+              alert("'<%= @job_request.location %>' not found");
             } else {
               map.setCenter(point, 13);
               var marker = new GMarker(point);
