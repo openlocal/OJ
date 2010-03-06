@@ -17,3 +17,6 @@ Given /^a job request "([^\"]*)" in "([^\"]*)"$/ do |title, location|
   JobRequest.make :title => title, :location => location
 end
 
+Given /^a pending job "([^\"]*)"$/ do |title|
+  JobRequest.make :title => title, :status => "Pending"
+end

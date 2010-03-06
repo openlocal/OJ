@@ -5,5 +5,7 @@ class JobRequest < ActiveRecord::Base
   define_index do 
     indexes title, description, location
     indexes categories.name, :as => :categories
+    
+    has "status = 'Pending'", :type => :boolean, :as => :is_pending
   end
 end
