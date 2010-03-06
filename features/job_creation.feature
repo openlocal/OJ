@@ -43,7 +43,7 @@ Feature: Creating New Jobs
     When I verify the account for "pat@allan.com"
     And I log out
     And I go to the job page for "Wash My Car"
-    Then I should see "I want to help"
+    Then I should see "I can help"
       
   Scenario: Signing in after creating a new job for an existing account
     Given an account for "pat@allan.com"
