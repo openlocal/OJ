@@ -6,4 +6,12 @@ class Notifications < ActionMailer::Base
     sent_on    Time.now
     body       :help_offer => help_offer
   end
+  
+  def accepted_offer(help_offer)
+    subject    'Your Help Offer has been accepted'
+    recipients help_offer.user.email
+    from       DO_NOT_REPLY
+    sent_on    Time.now
+    body       :help_offer => help_offer
+  end
 end
