@@ -48,7 +48,7 @@ describe JobRequest do
   describe '#accepted!' do
     before :each do
       @job = JobRequest.make(:status => 'offered')
-      @job.offered!
+      @job.accepted!
     end
     
     it "should set the status to accepted" do
