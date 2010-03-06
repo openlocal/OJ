@@ -15,6 +15,7 @@ class JobRequestsController < ApplicationController
   # GET /job_requests/1.xml
   def show
     @job_request = JobRequest.find(params[:id])
+    @user = current_user
 
     respond_to do |format|
       format.html # show.html.erb
