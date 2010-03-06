@@ -4,6 +4,7 @@
 	<div>Location: <%=h @job_request.location %></div>
 	<div>When: <%=h @job_request.start_at.to_s %> till <%=h @job_request.end_at.to_s %></div>
 	<div>Duration <%=h @job_request.duration %></div>
+	<div>Categories: <%= @job_request.categories.collect{|c| link_to(c.name, url_for(:controller => 'search', :query => c.name))}.join(', ')%></div>
 	
 	<% if @user == @job_request.user %>
 		<%= link_to 'Edit', edit_job_request_path(@job_request) %>
