@@ -20,6 +20,6 @@ class JobRequest < ActiveRecord::Base
   private
   
   def set_user
-    self.user ||= User.create :email => email_address
+    self.user ||= User.find_or_create_by_email(email_address)
   end
 end
