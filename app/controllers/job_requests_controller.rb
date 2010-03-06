@@ -18,7 +18,6 @@ class JobRequestsController < ApplicationController
     @user = current_user
     @help_offers = HelpOffer.paginate_by_job_request_id @job_request.id, :page => 1, :order => 'created_at DESC'
     
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @job_request }
@@ -61,8 +60,12 @@ class JobRequestsController < ApplicationController
       if @job_request.save
         if signed_in?
           render :step2 and return
-        else  
-          flash[:notice] = 'JobRequest was successfully created.'
+        else
+          if @job_request.user.email_confirmed?
+            flash[:notice] = 'Please log in to confirm your request.'
+          else
+            flash[:notice] = 'Please check your email and confirm your account to make your request public.'
+          end
           format.html { redirect_to(@job_request) }
           format.xml  { render :xml => @job_request, :status => :created, :location => @job_request }
         end
