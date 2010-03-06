@@ -1,0 +1,15 @@
+Hi
+
+Thanks for registering for Two Bob's Worth. To verify your account, please click the link below.
+
+<%= new_user_confirmation_url(
+      :user_id => @user,
+      :token   => @user.confirmation_token,
+      :encode  => false) %>
+
+This will allow your job requests to be seen by others.
+
+Kind Regards
+
+-- 
+The Two Bob's Worth Team
