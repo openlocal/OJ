@@ -2,6 +2,8 @@ class HelpOffer < ActiveRecord::Base
   belongs_to :user
   belongs_to :job_request
   
+  validates_presence_of :user, :job_request
+  
   after_create :send_notification
   after_save :send_acceptance_email
   
