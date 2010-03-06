@@ -5,6 +5,8 @@ class JobRequest < ActiveRecord::Base
   
   before_create :set_user
   
+  named_scope :open, :conditions => {:status => 'open'}
+  
   define_index do 
     indexes title, description, location
     indexes categories.name, :as => :categories
