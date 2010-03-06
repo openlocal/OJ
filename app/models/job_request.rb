@@ -17,6 +17,20 @@ class JobRequest < ActiveRecord::Base
     save
   end
   
+  def accepted_offer
+    help_offers.each do |offer|
+      return offer if offer.accepted
+    end
+    return nil
+  end
+  
+  def help_offer_for_user(user)
+    help_offers.each do |offer|
+      return offer if offer.user == user
+    end
+    return nil
+  end
+  
   private
   
   def set_user
