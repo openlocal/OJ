@@ -1,5 +1,11 @@
-<ul>
-  <% @requests.each do |request| %>
-    <li><%= request.title%></li>
-  <% end %>
-</ul>
+<% if @requests.empty? %>
+  <p>There are no matches for your search query</p>
+<% else %>
+  <ul>
+    <% @requests.each do |request| %>
+      <li><%= link_to request.title, request %></li>
+    <% end %>
+  </ul>
+  
+  <%= will_paginate @requests %>
+<% end %>

@@ -50,4 +50,10 @@ Feature: Searching for Job Requests
     When I go to the home page
     And I search for "Car"
     Then I should not see "Wash My Car"
+
+  Scenario: Searching with no results
+    When I go to the home page
+    And I search for "car"
+    Then I should see "There are no matches for your search query"
+
   
