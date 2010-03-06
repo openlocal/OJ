@@ -8,6 +8,9 @@ class Feedback < ActiveRecord::Base
   after_create :set_job_to_complete
   after_create :send_feedback_to_help_offerer
   
+  named_scope :limited, :limit => 3
+  named_scope :recent, :order => 'created_at DESC'
+  
   private
   
   def set_job_to_complete
