@@ -21,7 +21,7 @@
     <td><%=h job_request.end_at %></td>
     <td><%=h job_request.duration %></td>
     <td><%=h job_request.status %></td>
-    <td><%=h job_request.user %></td>
+    <td><%=h job_request.user.name %></td>
     <td><%= link_to 'Show', job_request %></td>
     <td><%= link_to 'Edit', edit_job_request_path(job_request) %></td>
     <td><%= link_to 'Destroy', job_request, :confirm => 'Are you sure?', :method => :delete %></td>

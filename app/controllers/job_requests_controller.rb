@@ -90,7 +90,9 @@ class JobRequestsController < ApplicationController
       when 'this-month'
         1.month.from_now
       end
-    
+      if @job_request.status == 'pending'
+        @job_request.status = 'open'
+      end
     end
     
     respond_to do |format|
