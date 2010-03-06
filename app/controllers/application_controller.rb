@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
   include Clearance::Authentication
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  before_filter :load_user
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  private
+    def load_user
+      @user = current_user
+    end
 end

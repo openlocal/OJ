@@ -9,11 +9,11 @@ class JobRequest < ActiveRecord::Base
     indexes title, description, location
     indexes categories.name, :as => :categories
     
-    has "status = 'Pending'", :type => :boolean, :as => :is_pending
+    has "status = 'pending'", :type => :boolean, :as => :is_pending
   end
   
   def open!
-    self.status = 'Open'
+    self.status = 'open'
     save
   end
   

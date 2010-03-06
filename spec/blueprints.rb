@@ -7,13 +7,13 @@ JobRequest.blueprint do
   user        { User.make }
   location    { "Sydney" }
   duration    { 2 }
-  status      { "Open" }
+  status      { "open" }
 end
 
 JobRequest.blueprint(:pending) do
   user          { nil }
   email_address { Faker::Internet.email }
-  status        { "Pending" }
+  status        { "pending" }
 end
 
 HelpOffer.blueprint do

@@ -17,12 +17,12 @@ describe JobRequest do
   
   describe '#open!' do
     before :each do
-      @job = JobRequest.make(:status => 'Pending')
+      @job = JobRequest.make(:status => 'pending')
       @job.open!
     end
     
     it "should set the status to open" do
-      @job.status.should == 'Open'
+      @job.status.should == 'open'
     end
     
     it "should save the changes" do

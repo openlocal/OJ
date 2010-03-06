@@ -13,6 +13,7 @@
 			<% else %>
 				<h3>Your offers</h3>
 				<%= render :partial => 'offer', :collection => @help_offers, :locals => {:job_request => @job_request} %>
+				<%= will_paginate @help_offers %>
 			<% end %>
 		<% elsif @job_request.status == "offered" %>
 			<h3>Offer accepted waiting for confirmation</h3>
@@ -54,34 +55,33 @@
 	<%= link_to 'Back', job_requests_path %>
 	
 </div>
+<% unless @job_request.location.blank? %>
 	<div id="mapDiv" style="width: 500px; height: 300px; float: right;"></div>
-<script src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=ABQIAAAAqm3plPiVC08Elzbvz5evNhRbE7UCZNFJf-WDfjAzqyZ6HhPuJxRAKjSVY0VNFfRyU1GL7uFaXDUi5g" type="text/javascript"></script> 
-<script type="text/javascript"> 
-	var map = null;
-    var geocoder = null;
-    function initialize() {
-      if (GBrowserIsCompatible()) {
-	    map = new GMap2(document.getElementById("mapDiv"));
-		geocoder = new GClientGeocoder();
-        geocoder.getLatLng('<%= @job_request.location %>',
-          function(point) {
-            if (!point) {
-              alert("'<%= @job_request.location %>' not found");
-            } else {
-              map.setCenter(point, 13);
-              var marker = new GMarker(point);
-              map.addOverlay(marker);
-              marker.openInfoWindowHtml('<%= @job_request.location %>');
-            }
-          }
-        );
-      }
-    }
-initialize();
-</script>
-
-
-<%= will_paginate @help_offers %>
+	<script src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=ABQIAAAAqm3plPiVC08Elzbvz5evNhRbE7UCZNFJf-WDfjAzqyZ6HhPuJxRAKjSVY0VNFfRyU1GL7uFaXDUi5g" type="text/javascript"></script> 
+	<script type="text/javascript"> 
+		var map = null;
+	    var geocoder = null;
+	    function initialize() {
+	      if (GBrowserIsCompatible()) {
+		    map = new GMap2(document.getElementById("mapDiv"));
+			geocoder = new GClientGeocoder();
+	        geocoder.getLatLng('<%= @job_request.location %>',
+	          function(point) {
+	            if (!point) {
+	              alert("'<%= @job_request.location %>' not found");
+	            } else {
+	              map.setCenter(point, 13);
+	              var marker = new GMarker(point);
+	              map.addOverlay(marker);
+	              marker.openInfoWindowHtml('<%= @job_request.location %>');
+	            }
+	          }
+	        );
+	      }
+	    }
+	initialize();
+	</script>
+<% end %>
 
 
 
