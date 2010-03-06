@@ -149,6 +149,22 @@ a:hover {
 	color:#666;
 }
 
+a img {
+  border: none;
+}
+
+.header a {
+  border: none;
+}
+
+.header a:hover {
+  color: #fff;
+}
+
+.header img {
+  display: block;
+}
+
 .readmore {
 	float:right;
 	font-style:italic;
