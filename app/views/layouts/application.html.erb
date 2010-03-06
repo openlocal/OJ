@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Two Bob's Worth: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold', 'formtastic', 'formtastic_changes' %>
-</head>
-<body>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Two Bob's Worth: <%= controller.action_name %></title>
+    <%= stylesheet_link_tag 'scaffold', 'app' %>
+    <%= stylesheet_link_tag 'formtastic', 'formtastic_changes' %>
+  </head>
+  <body>
+    <div id="content">
+      <p style="color: green"><%= flash[:notice] %></p>
 
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield %>
-
-<div>
-	<% if @user && @user.id %>
-		<%= link_to "My Profile", user_path(@user) %>
-		<%= link_to "Log out", sign_out_path %>
-	<% else %>
-		<%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
-	<% end %>
-</div>
-</body>
+      <%= yield %>
+    </div>
+    
+    <div>
+    	<% if @user && @user.id %>
+    		<%= link_to "My Profile", user_path(@user) %>
+    		<%= link_to "Log out", sign_out_path %>
+    	<% else %>
+    		<%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+    	<% end %>
+    </div>
+  </body>
 </html>

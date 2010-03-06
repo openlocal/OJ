@@ -14,6 +14,4 @@ class UsersController < Clearance::UsersController
       render 'edit'
     end
   end
-  
-    
 end

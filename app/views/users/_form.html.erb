@@ -1,38 +1,16 @@
-<%= form.error_messages %>
-<div class="name_field">
-  <%= form.label :real_name %>
-  <%= form.text_field :real_name %>
-</div>
-<div class="text_field">
-  <%= form.label :email %>
-  <%= form.text_field :email %>
-</div>
-<div class="skills">
-  <%= form.label :skills %>
-  <%= form.text_field :skills %>
-</div>
-<div class="reason">
-  <%= form.label :reason %>
-  <%= form.text_field :reason %>
-</div>
-<div class="my_job">
-  <%= form.label :my_job %>
-  <%= form.text_field :my_job %>
-</div>
-<div class="website">
-  <%= form.label :website %>
-  <%= form.text_field :website %>
-</div>
-<div class="about_me">
-  <%= form.label :about_me %>
-  <%= form.text_area :about_me %>
-</div>
-
-<div class="password_field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
-<div class="password_field">
-  <%= form.label :password_confirmation, "Confirm password" %>
-  <%= form.password_field :password_confirmation %>
-</div>
+<% semantic_form_for @user do |f| %>
+  <% f.inputs do %>
+    <%= f.input :real_name, :label => "Name" %>
+    <%= f.inputs :email %>
+    <% unless @user.new_record? %>
+      <%= f.inputs :skills, :reason, :my_job, :website, :about_me %>
+      <li>
+        <p>To set/change your avatar, head on over to <a href="http://en.gravatar.com/">Gravatar</a> to link one to your email address.</p>
+      </li>
+    <% end %>
+    <%= f.inputs :password, :password_confirmation %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button %>
+  <% end %>
+<% end %>

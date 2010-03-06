@@ -1,6 +1,3 @@
 <h2>Edit My Profile</h2>
- 
-<% form_for @user do |form| %>
-  <%= render :partial => '/users/form', :object => form %>
-  <%= form.submit 'Save', :disable_with => 'Please wait...' %>
-<% end %>
+
+<%= render :partial => 'form' %>
