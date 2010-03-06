@@ -14,4 +14,12 @@ class Notifications < ActionMailer::Base
     sent_on    Time.now
     body       :help_offer => help_offer
   end
+  
+  def feedback(feedback)
+    subject    'Job Completion Feedback'
+    recipients feedback.help_offer.user.email
+    from       DO_NOT_REPLY
+    sent_on    Time.now
+    body       :feedback => feedback
+  end
 end

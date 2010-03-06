@@ -20,5 +20,17 @@ describe Feedback do
       feedback = Feedback.make :job_request => job, :help_offer => nil
       feedback.help_offer.should == accepted_offer
     end
+    
+    it "should send an email to the help offerer" do
+      job   = JobRequest.make :status => 'offered'
+      offer = HelpOffer.make :job_request => job, :accepted => true
+      
+      Feedback.make :job_request => job, :help_offer => offer
+      
+      ActionMailer::Base.deliveries.detect { |mail|
+        mail.to.include?(offer.user.email) &&
+        mail.subject == 'Job Completion Feedback'
+      }.should_not be_nil
+    end
   end
 end

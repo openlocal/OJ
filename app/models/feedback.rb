@@ -6,6 +6,7 @@ class Feedback < ActiveRecord::Base
   
   before_validation_on_create :set_help_offer
   after_create :set_job_to_complete
+  after_create :send_feedback_to_help_offerer
   
   private
   
@@ -17,5 +18,9 @@ class Feedback < ActiveRecord::Base
     self.help_offer ||= job_request.help_offers.detect { |offer|
       offer.accepted
     }
+  end
+  
+  def send_feedback_to_help_offerer
+    Notifications.deliver_feedback self
   end
 end
