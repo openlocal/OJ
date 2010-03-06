@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :help_offers
 
-  map.resources :job_requests
+  map.resources :job_requests, :member => {:step2 => :get}
 
   # The priority is based upon order of creation: first created -> highest priority.
   

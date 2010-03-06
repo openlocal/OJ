@@ -1,0 +1,13 @@
+<% semantic_form_for :job_request, @job_request, :url => job_request_path(@job_request), :html => {:method => :put} do |form| %>
+  <%= form.inputs :phone_number, :organisation_name  %>
+
+<%= radio_button_tag 'time_period', 'today' %>today<br/>
+<%= radio_button_tag 'time_period', 'next-days' %>next few days<br/>
+<%= radio_button_tag 'time_period', 'this-week' %>this week<br/> 
+<%= radio_button_tag 'time_period', 'this-month' %>this month<br/>
+or the time frame below:<br/>
+<%= form.inputs :start_at , :end_at %>
+
+<%= form.commit_button "Add Info" %>
+<% end %>
+
