@@ -16,6 +16,8 @@ class JobRequestsController < ApplicationController
   def show
     @job_request = JobRequest.find(params[:id])
     @user = current_user
+    @help_offers = HelpOffer.paginate_by_job_request_id @job_request.id, :page => 1, :order => 'created_at DESC'
+    
 
     respond_to do |format|
       format.html # show.html.erb

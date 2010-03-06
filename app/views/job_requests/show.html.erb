@@ -7,8 +7,10 @@
 	
 	
 	<% if @user == @job_request.user %>
-		<%= link_to 'Edit', edit_job_request_path(@job_request) %> |
-		<%= link_to 'Help Offers', job_request_help_offers_path(@job_request) %> |
+		<%= link_to 'Edit', edit_job_request_path(@job_request) %>
+		<h3>Your offers</h3>
+		<%= render :partial => 'offer', :collection => @help_offers, :locals => {:job_request => @job_request} %>
+		
 	<% else %>
 		<%= link_to 'I wanna help', new_job_request_help_offer_path(@job_request) %> |
 	<% end %>
@@ -40,3 +42,9 @@
     }
 initialize();
 </script>
+
+
+<%= will_paginate @help_offers %>
+
+
+
