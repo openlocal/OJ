@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100306111632) do
+ActiveRecord::Schema.define(:version => 20100306132257) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -47,7 +47,10 @@ ActiveRecord::Schema.define(:version => 20100306111632) do
     t.string   "location"
     t.date     "start_at"
     t.date     "end_at"
+    t.boolean  "delta",             :default => true
   end
+
+  add_index "job_requests", ["delta"], :name => "index_job_requests_on_delta"
 
   create_table "users", :force => true do |t|
     t.string   "email"

@@ -49,7 +49,6 @@ class JobRequestsController < ApplicationController
   # POST /job_requests.xml
   def create
     @job_request = JobRequest.new(params[:job_request])
-    @job_request.status = 'pending'
     @job_request.user = current_user if signed_in?
 
     if @job_request.save

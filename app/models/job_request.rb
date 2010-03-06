@@ -3,10 +3,11 @@ class JobRequest < ActiveRecord::Base
   has_many :help_offers
   has_and_belongs_to_many :categories
   
-  validates_presence_of :title
+  validates_presence_of :title, :status, :user
   validates_numericality_of :duration, :greater_than => 0, :only_integer => true
   
-  before_create :set_user
+  before_validation_on_create :set_user
+  before_validation_on_create :set_status
   
   named_scope :open, :conditions => {:status => 'open'}
   
@@ -16,6 +17,8 @@ class JobRequest < ActiveRecord::Base
     
     has "status = 'pending'", :type => :boolean, :as => :is_pending
     has duration
+    
+    set_property :delta => true
   end
   
   def open!
@@ -51,5 +54,9 @@ class JobRequest < ActiveRecord::Base
   
   def set_user
     self.user ||= User.find_or_create_by_email(email_address)
+  end
+  
+  def set_status
+    self.status ||= user.email_confirmed? ? 'open' : 'pending'
   end
 end

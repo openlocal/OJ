@@ -66,4 +66,20 @@ describe JobRequest do
       Category.find_all_by_name('foo').length.should == 1
     end
   end
+  
+  describe '#pending' do
+    it "should default to pending" do
+      job = JobRequest.make_unsaved(:pending, :status => nil)
+      job.save
+      
+      job.status.should == 'pending'
+    end
+    
+    it "should be set to open if the user is confirmed" do
+      job = JobRequest.make_unsaved(:status => nil)
+      job.save
+      
+      job.status.should == 'open'
+    end
+  end
 end
