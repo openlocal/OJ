@@ -9,6 +9,7 @@
     <%= f.input :end_at %>
     <%= f.input :duration %>
     <%= f.input :status %>
+    <%= f.input :category_string, :label => 'Categories', :hint => 'Separate multiple categories with commas.' %>
   <% end %>
   <% f.buttons do %>
     <%= f.commit_button 'Update' %>

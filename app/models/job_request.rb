@@ -33,6 +33,16 @@ class JobRequest < ActiveRecord::Base
     return nil
   end
   
+  def category_string
+    categories.collect { |cat| cat.name }.join(', ')
+  end
+  
+  def category_string=(string)
+    self.categories = string.split(/,\w*/).collect { |name|
+      Category.find_or_create_by_name(name.strip)
+    }
+  end
+  
   private
   
   def set_user
