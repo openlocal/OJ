@@ -1,0 +1,158 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	font: 12px Verdana, Arial, Helvetica, sans-serif;
+	background: #FFFFFF;
+	margin: 0; 
+	padding: 0;
+	text-align: center; 
+	color: #000000;
+}
+#container {
+	width: 840px;  
+	background: #FFFFFF;
+	margin: 0 auto; 
+	border: 0px solid #000000;
+	text-align: left; 
+}
+
+#mainContent {
+	width: 100%;
+	padding: 0 39px;
+}
+
+#footer{
+	width: 100%;
+	margin: 0 auto;
+	text-align:center;
+	color:#999;
+	
+}
+
+div.spacer {
+	clear: both;
+  }
+
+div.left {
+	float: left;
+	width: 370px;
+	padding-right: 22px;
+}
+  
+div.right {
+	float: right;
+}
+
+img.floatLeft { 
+    float: left; 
+    margin: 0 10px 0 19px; 
+}
+
+img.floatRight { 
+    float: right; 
+    margin: 0 10px 0 19px; 
+}
+
+#nav td.i_can_help span, #nav td.how_it_works span, #nav td.i_need_help span {
+	display: none;
+}
+
+#nav td.i_can_help {
+	background-image: url('../images/i_can_help.gif');
+    background-repeat: no-repeat;
+	width: 139px;
+	height:27px;
+}
+
+#nav td.i_can_help:hover {
+	background-image: url('../images/i_can_help_hover.gif');
+    background-repeat: no-repeat;
+	width: 139px;
+	height:27px;
+}
+
+#nav td.how_it_works {
+	background-image: url('../images/how_it_works.gif');
+    background-repeat: no-repeat;
+	width: 180px;
+	height:27px;
+}
+
+#nav td.how_it_works:hover {
+	background-image: url('../images/how_it_works_hover.gif');
+    background-repeat: no-repeat;
+	width: 180px;
+	height:27px;
+}
+
+#nav td.i_need_help {
+	background-image: url('../images/i_need_help.gif');
+    background-repeat: no-repeat;
+	width: 163px;
+	height:27px;
+}
+
+#nav td.i_need_help:hover {
+	background-image: url('../images/i_need_help_hover.gif');
+    background-repeat: no-repeat;
+	width: 163px;
+	height:27px;
+}
+
+#opportunities h3 span, #recent_helpers h3 span, #thankyou_notes h3 span
+{
+	display:none;
+}
+
+#opportunities, #recent_helpers, #thankyou_notes {
+	background: #F9FdFC url('../images/gradient.jpg');
+    background-repeat: repeat-x;
+	background-position: left top;
+	
+}
+
+  
+#opportunities h3 {
+	background-image: url('../images/opportunities.gif');
+    background-repeat: no-repeat;
+	background-position: left center;
+	width: 370px;
+	height: 23px;
+}
+
+#recent_helpers h3 {
+	background-image: url('../images/recent_helpers.gif');
+    background-repeat: no-repeat;
+	background-position: left center;
+	width: 370px;
+	height: 23px;
+}
+
+#thankyou_notes h3 {
+	background-image: url('../images/thankyou_notes.gif');
+    background-repeat: no-repeat;
+	background-position: left center;
+	width: 370px;
+	height: 23px;
+}
+
+p span.name{
+	font-size:14px;
+}
+
+a, a:visited{
+	color: #999;
+	text-decoration:none;
+}
+a:hover {
+	color:#666;
+}
+
+.readmore {
+	float:right;
+	font-style:italic;
+	color:#999;
+	padding-right:10px;
+}
+
