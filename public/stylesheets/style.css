@@ -149,18 +149,6 @@ a:hover {
 	color:#666;
 }
 
-a img {
-  border: none;
-}
-
-.header a {
-  border: none;
-}
-
-.header a:hover {
-  color: #fff;
-}
-
 .header img {
   display: block;
 }
@@ -172,3 +160,6 @@ a img {
 	padding-right:10px;
 }
 
+.formtastic {
+  width: 35em;
+}

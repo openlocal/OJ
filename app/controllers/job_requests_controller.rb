@@ -3,12 +3,7 @@ class JobRequestsController < ApplicationController
   # GET /job_requests
   # GET /job_requests.xml
   def index
-    @job_requests = JobRequest.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @job_requests }
-    end
+    redirect_to '/search'
   end
 
   # GET /job_requests/1

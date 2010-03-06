@@ -15,7 +15,7 @@ class JobRequest < ActiveRecord::Base
   named_scope :limited, :limit => 6
   named_scope :recent, :order => 'updated_at DESC'
   
-  define_index do 
+  define_index do
     indexes title, description, location
     indexes categories.name, :as => :categories
     
