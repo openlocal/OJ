@@ -121,4 +121,17 @@ class JobRequestsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def accept
+     @job_request = JobRequest.find(params[:id])
+     if @job_request.status != "offered"
+      raise "status is not offerd"
+     end
+     if current_user != @job_request.accepted_offer.user
+       raise "user is not owner of obj"
+     end
+     @job_request.status = "accepted"
+     @job_request.save!
+     redirect_to(@job_request)
+  end
 end

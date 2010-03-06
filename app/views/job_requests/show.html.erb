@@ -41,7 +41,9 @@
 			<% if @job_request.status == "accepted" && user_offer.accepted %>
 				<div>You got it! Go do the work.</div>
 			<% elsif @job_request.status == "offered" && user_offer.accepted  %>
-				<div>Click to confirm .... TODO</div>
+			<% form_tag url_for(:controller => 'job_requests', :action => 'accept') do %>
+				<%= submit_tag 'Accept' %>
+			<% end %>
 			<% else %>
 				<div>Thanks for your offer but your help is not needed at this time.</div>
 			<% end %>
