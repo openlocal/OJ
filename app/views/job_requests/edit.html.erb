@@ -1,43 +1,18 @@
 <h1>Editing job_request</h1>
 
-<% form_for(@job_request) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :location %><br />
-    <%= f.text_area :location %>
-  </p>
-  <p>
-    <%= f.label :start_at %><br />
-    <%= f.datetime_select :start_at %>
-  </p>
-  <p>
-    <%= f.label :end_at %><br />
-    <%= f.datetime_select :end_at %>
-  </p>
-  <p>
-    <%= f.label :duration %><br />
-    <%= f.text_field :duration %>
-  </p>
-  <p>
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </p>
-  <p>
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+<% semantic_form_for @job_request do |f| %>
+  <% f.inputs do %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :location %>
+    <%= f.input :start_at %>
+    <%= f.input :end_at %>
+    <%= f.input :duration %>
+    <%= f.input :status %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Update' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Show', @job_request %> |
