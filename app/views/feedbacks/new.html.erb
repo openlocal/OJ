@@ -1,7 +1,7 @@
 <% semantic_form_for [@job_request, @feedback],
   :url => job_request_feedback_path(@job_request) do |f| %>
   <% f.inputs do %>
-    <%= f.input :notes, :label => 'Feedback'%>
+    <%= f.input :notes, :label => 'Feedback', :hint => 'Please write a thank-you and/or some feedback for your helpful assistant.' %>
     <%= f.input :rating, :as => :select, :collection => (1..5).to_a %>
     <%= f.input :duration, :label => 'Actual Duration' %>
   <% end %>
