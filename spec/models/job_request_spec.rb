@@ -29,4 +29,41 @@ describe JobRequest do
       @job.should_not be_changed
     end
   end
+  
+  describe '#category_string' do
+    it "should return all the categories joined with commas" do
+      @job = JobRequest.make
+      @job.categories << Category.make(:name => 'foo')
+      @job.categories << Category.make(:name => 'bar')
+      
+      @job.category_string.should == 'foo, bar'
+    end
+  end
+  
+  describe '#category_string=' do
+    it "should split strings by commas" do
+      @job = JobRequest.make
+      @job.category_string = 'foo, bar'
+      
+      @job.categories.collect { |cat| cat.name }.should == ['foo', 'bar']
+    end
+    
+    it "should create categories if they don't already exist" do
+      Category.find_by_name('foo').should be_nil
+      
+      @job = JobRequest.make
+      @job.category_string = 'foo, bar'
+      
+      Category.find_by_name('foo').should_not be_nil
+    end
+    
+    it "should use existing categories if they're already there" do
+      Category.make :name => 'foo'
+      
+      @job = JobRequest.make
+      @job.category_string = 'foo, bar'
+      
+      Category.find_all_by_name('foo').length.should == 1
+    end
+  end
 end
