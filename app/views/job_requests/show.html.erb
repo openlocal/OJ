@@ -18,9 +18,15 @@
 		<% elsif @job_request.status == "offered" %>
 			<h3>Offer accepted waiting for confirmation</h3>
 			<%= render :partial => 'offer', :object => @job_request.accepted_offer, :locals => {:job_request => @job_request} %>
+			<% form_tag url_for(:controller => 'job_requests', :action => 'cancel_accept') do %>
+				<%= submit_tag 'Select a different helper' %>
+			<% end %>			
 		<% elsif @job_request.status == "accepted" %>
 		<h3>Confirmed the following helper will do the work</h3>
-			<%= render :partial => 'offer', :object => @job_request.accepted_offer, :locals => {:job_request => @job_request} %>		
+			<%= render :partial => 'offer', :object => @job_request.accepted_offer, :locals => {:job_request => @job_request} %>	
+			<% form_tag url_for(:controller => 'job_requests', :action => 'cancel_accept') do %>
+				<%= submit_tag 'Switch to a different helper' %>
+			<% end %>				
 		<% end %>
 		
 		

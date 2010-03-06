@@ -126,4 +126,16 @@ class JobRequestsController < ApplicationController
      @job_request.save!
      redirect_to(@job_request)
   end
+  
+  def cancel_accept
+    @job_request = JobRequest.find(params[:id])
+    redirect_to(@job_request) unless @job_request.accepted_offer
+    offer = @job_request.accepted_offer
+    offer.accepted = false
+    offer.save!
+    @job_request.status = 'open'
+    @job_request.save!
+    flash[:notice] = 'Reversed offer acceptance.'
+    redirect_to(@job_request)
+  end
 end
