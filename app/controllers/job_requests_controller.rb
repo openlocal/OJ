@@ -61,9 +61,7 @@ class JobRequestsController < ApplicationController
       if @job_request.save
         if signed_in?
           render :step2 and return
-          
         else  
-          # TODO send email
           flash[:notice] = 'JobRequest was successfully created.'
           format.html { redirect_to(@job_request) }
           format.xml  { render :xml => @job_request, :status => :created, :location => @job_request }

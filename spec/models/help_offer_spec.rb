@@ -1,17 +1,13 @@
 require 'spec_helper'
 
 describe HelpOffer do
-  before(:each) do
-    @valid_attributes = {
-      :user_id => 1,
-      :job_request_id => 1,
-      :comment => "value for comment",
-      :accepted => false,
-      :response => "value for response"
-    }
-  end
-
-  it "should create a new instance given valid attributes" do
-    HelpOffer.create!(@valid_attributes)
+  describe '.create' do
+    it "should send an email to the job requester" do
+      offer = HelpOffer.make
+      
+      ActionMailer::Base.deliveries.detect { |mail|
+        mail.to.include?(offer.job_request.user.email)
+      }.should_not be_nil
+    end
   end
 end

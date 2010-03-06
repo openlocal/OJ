@@ -16,6 +16,11 @@ JobRequest.blueprint(:pending) do
   status        { "Pending" }
 end
 
+HelpOffer.blueprint do
+  user        {User.make}
+  job_request {JobRequest.make}  
+end
+
 User.blueprint do
   email                 { Faker::Internet.email }
   password              { "password" }
