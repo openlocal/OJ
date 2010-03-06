@@ -5,7 +5,7 @@
 
 <p>
   <b>Job request:</b>
-  <%=h @help_offer.job_request.name %>
+  <%=h @help_offer.job_request.title %>
 </p>
 
 <p>
@@ -16,4 +16,4 @@
 
 
 <%= link_to 'Edit', edit_job_request_help_offer_path(@job_request, @help_offer) %> |
-<%= link_to 'Back', help_offers_path %>
+<%= link_to 'Back', job_request_help_offers_path(@job_request) %>
