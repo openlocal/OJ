@@ -10,6 +10,12 @@ JobRequest.blueprint do
   status      { "Open" }
 end
 
+JobRequest.blueprint(:pending) do
+  user          { nil }
+  email_address { Faker::Internet.email }
+  status        { "Pending" }
+end
+
 User.blueprint do
   email                 { Faker::Internet.email }
   password              { "password" }
