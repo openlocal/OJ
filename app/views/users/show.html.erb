@@ -3,9 +3,11 @@
 <div class="real_name">
 Name:	<%= @user.real_name %>
 </div>
-<div class="email">
-Email:	<%= @user.email %>
-</div>
+<% if @user == current_user %>
+  <div class="email">
+  Email:	<%= @user.email %>
+  </div>
+<% end %>
 
 <div class="skills">
 Skills: <%= @user.skills %>
