@@ -7,6 +7,22 @@ Name:	<%= @user.real_name %>
 Email:	<%= @user.email %>
 </div>
 
+<div class="skills">
+My Skills: <%= @user.skills %>
+</div>
+<div class="reason">
+Reasons for helping: <%= @user.reason%>
+</div>
+<div class="my_job">
+My day job: <%= @user.my_job %>
+</div>
+<div class="website">
+My website: <%= @user.website %>
+</div>
+<div class="about_me">
+About me: <%= @user.about_me %>
+</div>
+
 <%= link_to 'Edit', edit_user_path(@user) %>
 <ul>
   <% @user.job_requests.each do |job| %>

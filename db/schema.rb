@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100306102055) do
+ActiveRecord::Schema.define(:version => 20100306111632) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -59,6 +59,11 @@ ActiveRecord::Schema.define(:version => 20100306102055) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "real_name"
+    t.string   "skills"
+    t.string   "reason"
+    t.string   "my_job"
+    t.string   "website"
+    t.text     "about_me"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
