@@ -17,6 +17,7 @@ class HelpOffersController < ApplicationController
   def show
     @help_offer = HelpOffer.find(params[:id])
 
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @help_offer }
@@ -37,6 +38,14 @@ class HelpOffersController < ApplicationController
   # GET /help_offers/1/edit
   def edit
     @help_offer = HelpOffer.find(params[:id])
+    if current_user == @job_request.user
+      #accept the help offer
+      render 'accept'
+    elsif current_user == @help_offer.user
+      render 'edit'
+    else
+      raise "user did not offer help or make job request"
+    end
   end
 
   # POST /help_offers
@@ -47,8 +56,8 @@ class HelpOffersController < ApplicationController
 
     respond_to do |format|
       if @help_offer.save
-        flash[:notice] = 'HelpOffer was successfully created.'
-        format.html { redirect_to(job_request_help_offers_url(@job_request)) }
+        flash[:notice] = 'Help Offer was submitted.'
+        format.html { redirect_to(job_request_url(@job_request)) }
         format.xml  { render :xml => @help_offer, :status => :created, :location => @help_offer }
       else
         format.html { render :action => "new" }
@@ -66,13 +75,29 @@ class HelpOffersController < ApplicationController
     end
 
     respond_to do |format|
-      if @help_offer.update_attributes(params[:help_offer])
-        flash[:notice] = 'HelpOffer was successfully updated.'
-        format.html { redirect_to(job_request_help_offers_url(@job_request)) }
-        format.xml  { head :ok }
+      if @job_request.user == current_user
+        #accepting offer
+
+        if @help_offer.update_attributes(params[:help_offer]) && @job_request.update_attributes(:status => 'offered')
+          #TODO send email to help offerer
+          flash[:notice] = "Offer accepted, confirmation from #{@help_offer.user.name} required."
+          format.html { redirect_to(job_request_url(@job_request)) }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @help_offer.errors, :status => :unprocessable_entity }
+        end
+          
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @help_offer.errors, :status => :unprocessable_entity }
+        
+        if @help_offer.update_attributes(params[:help_offer])
+          flash[:notice] = 'HelpOffer was successfully updated.'
+          format.html { redirect_to(job_request_help_offers_url(@job_request)) }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @help_offer.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end

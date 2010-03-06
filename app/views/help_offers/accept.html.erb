@@ -1,0 +1,6 @@
+Enter additional information for the helper:<br/>
+<% semantic_form_for [@job_request, @help_offer] do |form| %>
+	<%= form.input :response, :label => "Additional Information"   %>
+	
+	<%= form.commit_button "Accept Offer" %>
+<% end %>

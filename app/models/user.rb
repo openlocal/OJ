@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
   
   before_validation_on_create :generate_password
   after_save :open_pending_jobs
+
+  def name
+    email
+  end
   
   private
   
@@ -26,4 +30,6 @@ class User < ActiveRecord::Base
       job_requests.each { |job| job.open! }
     end
   end
+  
+  
 end
