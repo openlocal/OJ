@@ -49,4 +49,4 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-DO_NOT_REPLY = "donotreply@twobobsworth.org"
+DO_NOT_REPLY = "donotreply@twobobsworth.org.au"
