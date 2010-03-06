@@ -1,11 +1,26 @@
+<% form_tag "/search", :method => :get do %>
+  <label for="query">Search:</label>
+  <%= text_field_tag 'query', params[:query] %>
+  <input type="submit" value="Search" />
+<% end %>
+
 <% if @requests.empty? %>
   <p>There are no matches for your search query</p>
 <% else %>
-  <ul>
+  <table>
+    <tr>
+      <th>Job</th>
+      <th>Categories</th>
+      <th><%= link_to "Duration", :order => order_attribute("duration DESC") %></th>
+    </tr>
     <% @requests.each do |request| %>
-      <li><%= link_to request.title, request %></li>
+      <tr>
+        <td><%= link_to request.title, request %></td>
+        <td><%= request.category_string %></td>
+        <td><%= request.duration %>h</td>
+      </tr>
     <% end %>
-  </ul>
+  </table>
   
   <%= will_paginate @requests %>
 <% end %>

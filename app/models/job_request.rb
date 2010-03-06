@@ -12,6 +12,7 @@ class JobRequest < ActiveRecord::Base
     indexes categories.name, :as => :categories
     
     has "status = 'pending'", :type => :boolean, :as => :is_pending
+    has duration
   end
   
   def open!
