@@ -16,3 +16,7 @@ When /^I verify the account for "([^\"]*)"$/ do |email|
         :token   => user.confirmation_token
         )
 end
+
+When /^I log out$/ do
+  visit "/sign_out"
+end

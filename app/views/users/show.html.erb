@@ -1,0 +1,5 @@
+<ul>
+  <% @user.job_requests.each do |job| %>
+    <li><%= link_to job.title, job %></li>
+  <% end %>
+</ul>

@@ -2,8 +2,15 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :categories
   map.resources :job_requests, :member => {:step2 => :get}, :has_many => :help_offers
   map.resources :search
+  
+  map.resources :users do |users|
+    users.resource :password,
+      :controller => 'clearance/passwords',
+      :only       => [:create, :edit, :update]
 
-  # The priority is based upon order of creation: first created -> highest priority.
+    users.resource :confirmation,
+      :only       => [:new, :create]
+  end
   
   map.sign_out 'sign_out',
     :controller => 'clearance/sessions',

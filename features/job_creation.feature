@@ -28,20 +28,21 @@ Feature: Creating New Jobs
     Then I should see "Please log in"
   
   Scenario: Creating Jobs with an account when signed in
-      Given an account for "pat@allan.com"
-      And I am signed in as "pat@allan.com"
-      When I go to the home page
-      And I follow "I Want Help"
-      And I fill in "Title" with "Wash My Car"
-      And I fill in "Description" with "It's pretty muddy."
-      And I fill in "Duration" with "3"
-      And I press "Ask for Help"
-      Then I should see "Organisation name"
+    Given an account for "pat@allan.com"
+    And I am signed in as "pat@allan.com"
+    When I go to the home page
+    And I follow "I Want Help"
+    And I fill in "Title" with "Wash My Car"
+    And I fill in "Description" with "It's pretty muddy."
+    And I fill in "Duration" with "3"
+    And I press "Ask for Help"
+    Then I should see "Organisation name"
     
   Scenario: Confirming new jobs when verified account
-      Given a pending job "Wash My Car" by "pat@allan.com"
-      When I verify the account for "pat@allan.com"
-      And I go to the job page for "Wash My Car"
-      Then I should see "Open"
+    Given a pending job "Wash My Car" by "pat@allan.com"
+    When I verify the account for "pat@allan.com"
+    And I log out
+    And I go to the job page for "Wash My Car"
+    Then I should see "I want to help"
       
   

@@ -6,6 +6,13 @@ describe JobRequest do
       JobRequest.make :email_address => 'test@domain.com', :user => nil
       User.find_by_email('test@domain.com').should_not be_nil
     end
+    
+    it "should assign an existing account if there is one" do
+      user = User.make :email => 'test@domain.com'
+      job  = JobRequest.make :email_address => 'test@domain.com', :user => nil
+      
+      job.user.should == user
+    end
   end
   
   describe '#open!' do
