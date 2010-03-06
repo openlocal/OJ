@@ -2,6 +2,7 @@ class JobRequest < ActiveRecord::Base
   belongs_to :user
   has_many :help_offers
   has_and_belongs_to_many :categories
+  has_one :feedback
   
   validates_presence_of :title, :status, :user
   validates_numericality_of :duration, :greater_than => 0, :only_integer => true
@@ -23,6 +24,21 @@ class JobRequest < ActiveRecord::Base
   
   def open!
     self.status = 'open'
+    save
+  end
+  
+  def offered!
+    self.status = 'offered'
+    save
+  end
+  
+  def accepted!
+    self.status = 'accepted'
+    save
+  end
+  
+  def complete!
+    self.status = 'complete'
     save
   end
   

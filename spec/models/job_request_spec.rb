@@ -30,6 +30,51 @@ describe JobRequest do
     end
   end
   
+  describe '#offered!' do
+    before :each do
+      @job = JobRequest.make(:status => 'open')
+      @job.offered!
+    end
+    
+    it "should set the status to offered" do
+      @job.status.should == 'offered'
+    end
+    
+    it "should save the changes" do
+      @job.should_not be_changed
+    end
+  end
+  
+  describe '#accepted!' do
+    before :each do
+      @job = JobRequest.make(:status => 'offered')
+      @job.offered!
+    end
+    
+    it "should set the status to accepted" do
+      @job.status.should == 'accepted'
+    end
+    
+    it "should save the changes" do
+      @job.should_not be_changed
+    end
+  end
+  
+  describe '#complete!' do
+    before :each do
+      @job = JobRequest.make(:status => 'accepted')
+      @job.complete!
+    end
+    
+    it "should set the status to complete" do
+      @job.status.should == 'complete'
+    end
+    
+    it "should save the changes" do
+      @job.should_not be_changed
+    end
+  end
+  
   describe '#category_string' do
     it "should return all the categories joined with commas" do
       @job = JobRequest.make

@@ -26,22 +26,15 @@
 			<%= render :partial => 'offer', :object => @job_request.accepted_offer, :locals => {:job_request => @job_request} %>	
 			<% form_tag url_for(:controller => 'job_requests', :action => 'cancel_accept') do %>
 				<%= submit_tag 'Switch to a different helper' %>
-			<% end %>				
+			<% end %>
+			<%= link_to 'Mark as Completed', new_job_request_feedback_path(@job_request) %>
 		<% end %>
-		
-		
-		
-		
 	<% elsif @job_request.status == "open" %>
 		<% if @job_request.help_offer_for_user(@user) %>
 			<div>You have made an offer for this request. (<%= link_to 'Edit', edit_job_request_help_offer_path(@job_request, @job_request.help_offer_for_user(@user)) %>)</div>
 		<% else %>
 			<%= link_to 'I can help', new_job_request_help_offer_path(@job_request) %> |
 		<% end %>
-		
-		
-		
-		
 	<% else %>
 		<% user_offer = @job_request.help_offer_for_user(@user) %>
 		<% if user_offer %>

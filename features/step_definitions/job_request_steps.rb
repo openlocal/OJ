@@ -25,3 +25,8 @@ Given /^a pending job "([^\"]*)" by "([^\"]*)"$/ do |title, email_address|
   JobRequest.make :pending, :title => title, :email_address => email_address
 end
 
+Given /^a job "([^\"]*)" by "([^\"]*)" with an accepted offer$/ do |title, email|
+  job = JobRequest.make :email_address => email, :title => title, :user => nil
+  job.help_offers.make :accepted => true
+  job.accepted!
+end

@@ -31,3 +31,11 @@ end
 Category.blueprint do
   name { "construction" }
 end
+
+Feedback.blueprint do
+  job_request { JobRequest.make }
+  help_offer  { HelpOffer.make :job_request => job_request }
+  rating      { 3 }
+  duration    { 4 }
+  notes       { "Great job." }
+end

@@ -1,6 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :categories
-  map.resources :job_requests, :member => {:step2 => :get, :accept => :post, :cancel_accept => :post}, :has_many => :help_offers
+  map.resources :job_requests, :member => {:step2 => :get, :accept => :post, :cancel_accept => :post} do |job_requests|
+    job_requests.resources :help_offers
+    job_requests.resource :feedback
+  end
+  
   map.resources :search
   
   map.resources :users do |users|

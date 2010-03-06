@@ -78,7 +78,7 @@ class HelpOffersController < ApplicationController
       if @job_request.user == current_user
         #accepting offer
         @help_offer.accepted = true
-        if @help_offer.update_attributes(params[:help_offer]) && @job_request.update_attributes(:status => 'offered')
+        if @help_offer.update_attributes(params[:help_offer]) && @job_request.offered!
           #TODO send email to help offerer
           flash[:notice] = "Offer accepted, confirmation from #{@help_offer.user.name} required."
           format.html { redirect_to(job_request_url(@job_request)) }
