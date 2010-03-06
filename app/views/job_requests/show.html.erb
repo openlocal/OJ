@@ -42,9 +42,11 @@
 			<% if @job_request.status == "accepted" && user_offer.accepted %>
 				<div>You got it! Go do the work.</div>
 			<% elsif @job_request.status == "offered" && user_offer.accepted  %>
-			<% form_tag url_for(:controller => 'job_requests', :action => 'accept') do %>
-				<%= submit_tag 'Accept' %>
-			<% end %>
+				<% form_tag url_for(:controller => 'job_requests', :action => 'accept') do %>
+					<%= submit_tag 'Accept' %>
+				<% end %>
+				<%= link_to 'Decline', job_request_help_offer_path(@job_request, user_offer), 
+						:confirm => 'Are you sure?', :method => :delete %><br/>
 			<% else %>
 				<div>Thanks for your offer but your help is not needed at this time.</div>
 			<% end %>

@@ -106,10 +106,20 @@ class HelpOffersController < ApplicationController
   # DELETE /help_offers/1.xml
   def destroy
     @help_offer = HelpOffer.find(params[:id])
+    if @help_offer.user != current_user
+      raise 'Only users that create help offers can destroy them'
+    end
+    
+    if @job_request.accepted_offer == @help_offer
+      @job_request.status = 'open'
+      @job_request.save!
+    end
+    
     @help_offer.destroy
+    flash[:notice] = "Your help offer has been removed."
 
     respond_to do |format|
-      format.html { redirect_to(job_request_help_offers_url(@job_request)) }
+      format.html { redirect_to(job_request_url(@job_request)) }
       format.xml  { head :ok }
     end
   end
