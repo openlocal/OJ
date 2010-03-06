@@ -3,6 +3,9 @@ class JobRequest < ActiveRecord::Base
   has_many :help_offers
   has_and_belongs_to_many :categories
   
+  validates_presence_of :title
+  validates_numericality_of :duration, :greater_than => 0, :only_integer => true
+  
   before_create :set_user
   
   named_scope :open, :conditions => {:status => 'open'}
