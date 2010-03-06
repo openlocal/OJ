@@ -5,14 +5,49 @@
 	<div>When: <%=h @job_request.start_at.to_s %> till <%=h @job_request.end_at.to_s %></div>
 	<div>Duration <%=h @job_request.duration %></div>
 	
-	
 	<% if @user == @job_request.user %>
 		<%= link_to 'Edit', edit_job_request_path(@job_request) %>
-		<h3>Your offers</h3>
-		<%= render :partial => 'offer', :collection => @help_offers, :locals => {:job_request => @job_request} %>
+		<% if @job_request.status == "open" %>
+			<% if @help_offers.empty? %>
+				<div>No offers yet.</div>
+			<% else %>
+				<h3>Your offers</h3>
+				<%= render :partial => 'offer', :collection => @help_offers, :locals => {:job_request => @job_request} %>
+			<% end %>
+		<% elsif @job_request.status == "offered" %>
+			<h3>Offer accepted waiting for confirmation</h3>
+			<%= render :partial => 'offer', :object => @job_request.accepted_offer, :locals => {:job_request => @job_request} %>
+		<% elsif @job_request.status == "accepted" %>
+		<h3>Confirmed the following helper will do the work</h3>
+			<%= render :partial => 'offer', :object => @job_request.accepted_offer, :locals => {:job_request => @job_request} %>		
+		<% end %>
 		
-	<% elsif @job_request.status == "Open" %>
-		<%= link_to 'I want to help', new_job_request_help_offer_path(@job_request) %> |
+		
+		
+		
+	<% elsif @job_request.status == "open" %>
+		<% if @job_request.help_offer_for_user(@user) %>
+			<div>You have made an offer for this request. (<%= link_to 'Edit', edit_job_request_help_offer_path(@job_request, @job_request.help_offer_for_user(@user)) %>)</div>
+		<% else %>
+			<%= link_to 'I want to help', new_job_request_help_offer_path(@job_request) %> |
+		<% end %>
+		
+		
+		
+		
+	<% else %>
+		<% user_offer = @job_request.help_offer_for_user(@user) %>
+		<% if user_offer %>
+			<% if @job_request.status == "accepted" && user_offer.accepted %>
+				<div>You got it! Go do the work.</div>
+			<% elsif @job_request.status == "offered" && user_offer.accepted  %>
+				<div>Click to confirm .... TODO</div>
+			<% else %>
+				<div>Thanks for your offer but your help is not needed at this time.</div>
+			<% end %>
+		<% else %>
+			<div>Not accepting help requests at this time</div>
+		<% end %>
 	<% end %>
 	<%= link_to 'Back', job_requests_path %>
 	

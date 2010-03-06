@@ -1,5 +1,7 @@
 <div class="help_offer">
-	<div class="offer_name"><%= offer.user.email %></div>
+	<div class="offer_name"><%= offer.user.name %></div>
 	<div class="offer_comment"><%= offer.comment %></div>
-	<div class="offer_accept"><%= link_to 'Accept', edit_job_request_help_offer_path(job_request, offer) %></div>
+	<% if job_request.status == 'open'%>
+		<div class="offer_accept"><%= link_to 'Accept', edit_job_request_help_offer_path(job_request, offer) %></div>
+	<% end %>
 </div>
