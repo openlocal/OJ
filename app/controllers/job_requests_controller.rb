@@ -1,5 +1,5 @@
 class JobRequestsController < ApplicationController 
-  
+  before_filter :validate_user, :only => [:update, :destroy, :cancel_accept]
   # GET /job_requests
   # GET /job_requests.xml
   def index
@@ -138,4 +138,13 @@ class JobRequestsController < ApplicationController
     flash[:notice] = 'Reversed offer acceptance.'
     redirect_to(@job_request)
   end
+  
+  private
+  def validate_user
+    @job_request = JobRequest.find(params[:id])
+    if @job_request.user != current_user
+      raise 'this user is not allowed to perform this operation.'
+    end
+  end
+  
 end
