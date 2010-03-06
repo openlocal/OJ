@@ -41,10 +41,10 @@ class JobRequestsController < ApplicationController
     @job_request = JobRequest.find(params[:id])
   end
 
-  def step2show
+  def step2
     @job_request = JobRequest.find(params[:id])
     
-      render 'step2'
+    render 'step2'
   end
 
   # POST /job_requests
@@ -52,27 +52,21 @@ class JobRequestsController < ApplicationController
   def create
     @job_request = JobRequest.new(params[:job_request])
     @job_request.status = 'pending'
-    if signed_in?
-      @job_request.user = current_user
-    end
+    @job_request.user = current_user if signed_in?
 
-    respond_to do |format|
-      if @job_request.save
-        if signed_in?
-          render :step2 and return
-        else
-          if @job_request.user.email_confirmed?
-            flash[:notice] = 'Please log in to confirm your request.'
-          else
-            flash[:notice] = 'Please check your email and confirm your account to make your request public.'
-          end
-          format.html { redirect_to(@job_request) }
-          format.xml  { render :xml => @job_request, :status => :created, :location => @job_request }
-        end
+    if @job_request.save
+      if signed_in?
+        render :step2 and return
+      elsif @job_request.user.email_confirmed?
+        flash[:notice] = 'Please log in to confirm your request.'
+        session[:return_to] = step2_job_request_path(@job_request)
+        redirect_to new_session_path
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @job_request.errors, :status => :unprocessable_entity }
+        flash[:notice] = 'Please check your email and confirm your account to make your request public.'
+        redirect_to @job_request
       end
+    else
+      render :action => "new"
     end
   end
 
