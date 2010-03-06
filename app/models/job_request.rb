@@ -11,6 +11,9 @@ class JobRequest < ActiveRecord::Base
   before_validation_on_create :set_status
   
   named_scope :open, :conditions => {:status => 'open'}
+  named_scope :completed, :conditions => {:status => 'complete'}
+  named_scope :limited, :limit => 6
+  named_scope :recent, :order => 'updated_at DESC'
   
   define_index do 
     indexes title, description, location

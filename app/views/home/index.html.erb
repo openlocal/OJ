@@ -1,49 +1,31 @@
 <div class="left">
   <div id="opportunities">
  		<h3><span>Upcoming Opportunities</span></h3>
-          	<p><img src="images/green_button1.png" width="67" height="67" class="floatLeft"><strong>Fixing school roof</strong><br />
-            		Kindergarten and elementary school teachers teach children to read, write, speak, do math, and much more...</p>
- 			 	<a class="readmore" href="#">More info...</a>                 
+ 		
+ 		<% @open.each do |job| %>
+    	<p><img src="images/green_button1.png" width="67" height="67" class="floatLeft"><strong><%= job.title %></strong><br />
+        <%= job.description %></p>
+        <%= link_to "More info...", job, :class => 'readmore' %>
 				<div class="spacer"></div>
-       		<p><img src="images/yellow_button.png" width="67" height="67" class="floatLeft"><strong><img src="images/new_button.png" width="47" height="47" class="floatRight">Fixing school roof</strong><br />
-            		Kindergarten and elementary school teachers teach children to read, write, speak, do math, and much more...</p>
- 			 	<a class="readmore" href="#">More info...</a>       
-              	<div class="spacer"></div>     
- 				<p><img src="images/orange_button.png" width="67" height="67" class="floatLeft"><strong>Fixing school roof</strong><br />
- 					Kindergarten and elementary school teachers teach children to read, write, speak, do math, and much more...</p>
- 			 	<a class="readmore" href="#">More info...</a>                      
-       			<div class="spacer"></div>
- 				<p><img src="images/red_button.png" width="67" height="67" class="floatLeft"><strong>Fixing school roof</strong><br />
- 					Kindergarten and elementary school teachers teach children to read, write, speak, do math, and much more...</p>
- 			 	<a class="readmore" href="#">More info...</a>               
-       			<div class="spacer"></div>
-     		    <p><img src="images/green_button2.png" width="67" height="67" class="floatLeft"><strong>Fixing school roof</strong><br />
- 					Kindergarten and elementary school teachers teach children to read, write, speak, do math, and much more...</p>
- 			 	<a class="readmore" href="#">More info...</a>                
-       			<div class="spacer"></div>            
+		<% end %>
     </div><!-- end #opportunities -->        
  </div><!-- end .left -->
 <div class="left">
 	   <div id="recent_helpers">
       	<h3><span>Recent Helpers</span></h3>
-      		<img src="images/image1.gif" width="67" height="67" class="floatLeft"><p><span class="name">Andrew Perry</span><br />Fixing school roof</p>
+      	
+      	<% @completed.each do |job| %>
+      		<img src="images/image1.gif" width="67" height="67" class="floatLeft"><p><span class="name"><%= job.feedback.help_offer.user.name %></span><br /><%= job.title %></p>
 	 			<div class="spacer">&nbsp;</div>
-       		<img src="images/image2.gif" width="67" height="67" class="floatLeft"><p><span class="name">Andrew Perry</span><br />Fixing school roof</p>
-	 			<div class="spacer">&nbsp;</div>
-       		<img src="images/image3.gif" width="67" height="67" class="floatLeft"><p><span class="name">Andrew Perry</span><br />Fixing school roof</p>
-	 			<div class="spacer">&nbsp;</div>
-       		<img src="images/image4.gif" width="67" height="67" class="floatLeft"><p><span class="name">Andrew Perry</span><br />Fixing school roof</p>
-	 			<div class="spacer">&nbsp;</div>
+	 			<% end %>
  	</div><!-- end #recent_helpers -->
        <div id="thankyou_notes">
       	<h3><span>Thank You Notes</span></h3>
-          	<p><img src="images/notes_image1.gif" width="89" height="90" class="floatLeft"><strong>Fixing school roof</strong><br />
-            		Kindergarten and elementary school teachers teach children to read, write, speak, do math, and much more...</p>
- 			 	<a class="readmore" href="#">More info...</a> 
-              <div class="spacer"></div>
-              <p><img src="images/notes_image2.gif" width="89" height="89" class="floatLeft"><strong>Fixing school roof</strong><br />
-            		Kindergarten and elementary school teachers teach children to read, write, speak, do math, and much more...</p>
- 			 	<a class="readmore" href="#">More info...</a>                
-       <div class="spacer">&nbsp;</div>
+      	<% @feedbacks.each do |feedback| %>
+        	<p><img src="images/notes_image1.gif" width="89" height="90" class="floatLeft"><strong><%= feedback.job_request.title %></strong><br />
+          <%= feedback.notes %></p>
+ 			 	  <%= link_to "More info...", feedback.job_request, :class => 'readmore' %>
+          <div class="spacer"></div>
+        <% end %>
        </div><!-- end #thankyou_notes -->
 </div>
