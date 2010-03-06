@@ -1,5 +1,5 @@
 <% semantic_form_for :job_request, @job_request, :url => job_request_path(@job_request), :html => {:method => :put} do |form| %>
-  <%= form.inputs :location, :phone_number, :organisation_name  %>
+  <%= form.inputs :organisation_name, :phone_number  %>
 
 <%= radio_button_tag 'time_period', 'today' %>today<br/>
 <%= radio_button_tag 'time_period', 'next-days' %>next few days<br/>

@@ -1,4 +1,4 @@
-<h1>New job_request</h1>
+<h1>New Job Request</h1>
 
 <% semantic_form_for @job_request do |form| %>
   <%= form.inputs :title, :description  %>
@@ -6,7 +6,7 @@
 	<%= form.input :helpee_name, :label => "Your name"  %>
 	<%= form.input :email_address %>
   <% end %>
-  <%= form.inputs :duration %>
+  <%= form.inputs :location, :duration %>
 
   
   <%= form.commit_button "Ask for help" %>
