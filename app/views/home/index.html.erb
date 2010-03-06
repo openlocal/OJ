@@ -12,7 +12,7 @@
  </div><!-- end .left -->
 <div class="left">
 	   <div id="recent_helpers">
-      	<h3><span>Recent Helpers</span></h3>
+      	<h3>Recent Helpers</h3>
       	
       	<% @completed.each do |job| %>
       		<img src="images/image1.gif" width="67" height="67" class="floatLeft"><p><span class="name"><%= job.feedback.help_offer.user.name %></span><br /><%= job.title %></p>
@@ -20,7 +20,7 @@
 	 			<% end %>
  	</div><!-- end #recent_helpers -->
        <div id="thankyou_notes">
-      	<h3><span>Thank You Notes</span></h3>
+      	<h3>Thank You Notes</h3>
       	<% @feedbacks.each do |feedback| %>
         	<p><img src="images/notes_image1.gif" width="89" height="90" class="floatLeft"><strong><%= feedback.job_request.title %></strong><br />
           <%= feedback.notes %></p>

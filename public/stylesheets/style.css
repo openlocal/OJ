@@ -115,32 +115,13 @@ img.floatRight {
 }
 
   
-#opportunities h3 {
-/*  background-image: url('../images/opportunities.gif');
-    background-repeat: no-repeat;
-  background-position: center center; */
+h3 {
   background-color: #418FAE;
 	color: #fff;
 	font-size: 1.5em;
 	line-height: 1.5;
 	font-family: "nevis", "Rockwell", Verdana;
 	text-align: center;
-}
-
-#recent_helpers h3 {
-	background-image: url('../images/recent_helpers.gif');
-    background-repeat: no-repeat;
-	background-position: left center;
-	width: 370px;
-	height: 23px;
-}
-
-#thankyou_notes h3 {
-	background-image: url('../images/thankyou_notes.gif');
-    background-repeat: no-repeat;
-	background-position: left center;
-	width: 370px;
-	height: 23px;
 }
 
 p span.name{
