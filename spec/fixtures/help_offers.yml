@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  job_request: 
+  comment: MyText
+  accepted: false
+  response: MyText
+
+two:
+  user: 
+  job_request: 
+  comment: MyText
+  accepted: false
+  response: MyText

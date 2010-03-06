@@ -1,0 +1,28 @@
+<h1>Listing help_offers</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Job request</th>
+    <th>Comment</th>
+    <th>Accepted</th>
+    <th>Response</th>
+  </tr>
+
+<% @help_offers.each do |help_offer| %>
+  <tr>
+    <td><%=h help_offer.user %></td>
+    <td><%=h help_offer.job_request %></td>
+    <td><%=h help_offer.comment %></td>
+    <td><%=h help_offer.accepted %></td>
+    <td><%=h help_offer.response %></td>
+    <td><%= link_to 'Show', help_offer %></td>
+    <td><%= link_to 'Edit', edit_help_offer_path(help_offer) %></td>
+    <td><%= link_to 'Destroy', help_offer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New help_offer', new_help_offer_path %>

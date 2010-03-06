@@ -1,0 +1,32 @@
+<h1>Editing help_offer</h1>
+
+<% form_for(@help_offer) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </p>
+  <p>
+    <%= f.label :job_request %><br />
+    <%= f.text_field :job_request %>
+  </p>
+  <p>
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.label :accepted %><br />
+    <%= f.check_box :accepted %>
+  </p>
+  <p>
+    <%= f.label :response %><br />
+    <%= f.text_area :response %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @help_offer %> |
+<%= link_to 'Back', help_offers_path %>

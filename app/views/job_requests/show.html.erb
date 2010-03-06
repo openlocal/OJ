@@ -1,0 +1,43 @@
+<p>
+  <b>Title:</b>
+  <%=h @job_request.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @job_request.description %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%=h @job_request.location %>
+</p>
+
+<p>
+  <b>Start at:</b>
+  <%=h @job_request.start_at %>
+</p>
+
+<p>
+  <b>End at:</b>
+  <%=h @job_request.end_at %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%=h @job_request.duration %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @job_request.status %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @job_request.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_job_request_path(@job_request) %> |
+<%= link_to 'Back', job_requests_path %>

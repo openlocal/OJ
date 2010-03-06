@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  location: MyText
+  start_at: 2010-03-06 11:08:09
+  end_at: 2010-03-06 11:08:09
+  duration: 1
+  status: MyString
+  user: 
+
+two:
+  title: MyString
+  description: MyText
+  location: MyText
+  start_at: 2010-03-06 11:08:09
+  end_at: 2010-03-06 11:08:09
+  duration: 1
+  status: MyString
+  user: 
