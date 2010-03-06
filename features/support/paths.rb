@@ -12,6 +12,9 @@ module NavigationHelpers
       '/'
     when /the log in page/
       '/session/new'
+    when /the job page for "([^"]+)"/
+      job = JobRequest.find_by_title($1)
+      job_request_path(job)
     
     # Add more mappings here.
     # Here is a more fancy example:
