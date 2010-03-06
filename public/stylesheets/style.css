@@ -100,7 +100,9 @@ img.floatRight {
 	height:27px;
 }
 
-#opportunities h3 span, #recent_helpers h3 span, #thankyou_notes h3 span
+#opportunities h3 span,
+#recent_helpers h3 span,
+#thankyou_notes h3 span
 {
 	display:none;
 }
@@ -114,11 +116,15 @@ img.floatRight {
 
   
 #opportunities h3 {
-	background-image: url('../images/opportunities.gif');
+/*  background-image: url('../images/opportunities.gif');
     background-repeat: no-repeat;
-	background-position: center center;
-	background-color: #418FAE;
-	height: 23px;
+  background-position: center center; */
+  background-color: #418FAE;
+	color: #fff;
+	font-size: 1.5em;
+	line-height: 1.5;
+	font-family: "nevis", "Rockwell", Verdana;
+	text-align: center;
 }
 
 #recent_helpers h3 {
@@ -151,6 +157,10 @@ a:hover {
 
 .header img {
   display: block;
+}
+
+a img {
+  border: none;
 }
 
 .readmore {
