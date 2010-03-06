@@ -9,7 +9,9 @@ Thanks for registering for Two Bob's Worth. To verify your account, please click
 
 This will allow your job requests to be seen by others.
 
+<%- unless @user.password.blank? -%>
 Don't forget: your password is <%= @user.password %>.
+<%- end -%>
 
 Kind Regards
 
