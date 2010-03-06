@@ -1,14 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :categories
-
   map.resources :help_offers
-
   map.resources :job_requests
-  
   map.resources :search
-
-  # The priority is based upon order of creation: first created -> highest priority.
   
+  map.sign_out 'sign_out',
+    :controller => 'clearance/sessions',
+    :action     => 'destroy',
+    :method     => :get
+
   map.root :controller => 'home'
 
   # Sample of regular route:
