@@ -2,12 +2,17 @@ class User < ActiveRecord::Base
   include Clearance::User
   
   has_many :job_requests
-  
+  attr_accessible :real_name
   before_validation_on_create :generate_password
   after_save :open_pending_jobs
 
   def name
-    email
+    
+    if real_name.blank?
+      email
+    else
+      real_name
+    end
   end
   
   private

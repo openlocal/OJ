@@ -1,5 +1,18 @@
+<div class="my_profile" style="float: left; width: 400px">
+<h1>My Profile</h1>
+<div class="real_name">
+Name:	<%= @user.real_name %>
+</div>
+<div class="email">
+Email:	<%= @user.email %>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user) %>
 <ul>
   <% @user.job_requests.each do |job| %>
     <li><%= link_to job.title, job %></li>
   <% end %>
 </ul>
+</div>
+
+<div style="float: left"><%= image_tag "http://www.gravatar.com/avatar/" + Digest::MD5.hexdigest(@user.email) + "?d=identicon&r=g" %></div>
