@@ -116,8 +116,8 @@ img.floatRight {
 #opportunities h3 {
 	background-image: url('../images/opportunities.gif');
     background-repeat: no-repeat;
-	background-position: left center;
-	width: 370px;
+	background-position: center center;
+	background-color: #418FAE;
 	height: 23px;
 }
 

@@ -7,20 +7,17 @@
 <% if @requests.empty? %>
   <p>There are no matches for your search query</p>
 <% else %>
-  <table>
-    <tr>
-      <th>Job</th>
-      <th>Categories</th>
-      <th><%= link_to "Duration", :order => order_attribute("duration DESC") %></th>
-    </tr>
-    <% @requests.each do |request| %>
-      <tr>
-        <td><%= link_to request.title, request %></td>
-        <td><%= request.category_string %></td>
-        <td><%= request.duration %>h</td>
-      </tr>
-    <% end %>
-  </table>
-  
+
+<div id="opportunities">
+	<h3><span>Upcoming Opportunities</span></h3>
+	
+	<% @requests.each do |job| %>
+  	<p><img src="images/green_button1.png" width="67" height="67" class="floatLeft"><strong><%= job.title %></strong><br />
+      <%= job.description %></p>
+      <%= link_to "More info...", job, :class => 'readmore' %>
+			<div class="spacer"></div>
+	<% end %>
+  </div>
+
   <%= will_paginate @requests %>
 <% end %>

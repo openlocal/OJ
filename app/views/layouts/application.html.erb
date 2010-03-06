@@ -74,19 +74,17 @@
     </div>
     
     <div id="footer">
-      <p>Two Bob's Worth Ltd ABN 86 141 111 391</p>
-    </div><!-- end #footer -->
-  </div><!-- end #container -->
-  
-    <div>
-    	<% if @user && @user.id %>
+      <% if @user && @user.id %>
     		<%= link_to "My Profile", user_path(@user) %>
     		<%= link_to "Log out", sign_out_path %>
     	<% else %>
     		<%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
     	<% end %>
-    </div>
-    
-    <%= javascript_include_tag 'jquery', 'application' %>
+    	
+      <p>Two Bob's Worth Ltd ABN 86 141 111 391</p>
+    </div><!-- end #footer -->
+  </div><!-- end #container -->
+      
+  <%= javascript_include_tag 'jquery', 'application' %>
   </body>
 </html>
