@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   
   private
-    def load_user
-      @user = current_user
-    end
+  
+  def load_user
+    @user = current_user
+  end
 end
