@@ -128,6 +128,33 @@ h3 {
 	-webkit-border-top-right-radius: 0.5em;
 }
 
+.duration-box {
+  float: left;
+  margin: 0 0.5em;
+  font-size: 4em;
+  width: 1.2em;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  text-align: center;
+  font-family: "Baskerville", Verdana;
+  -webkit-box-shadow: 2px 2px 2px #333333
+}
+
+.duration1 {
+  background-color: #00B80C;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#00B80C), to(#00E20D));
+}
+
+.duration2 {
+  background-color: #FFB712;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#FFB712), to(#F5FF00));
+}
+
+.duration3 {
+  background-color: #EBED00;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#D54E04), to(#ED9603));
+}
+
 h4, h4 a, h4 a:visited {
   color: #000;
   font-family: "nevis", "Rockwell", Verdana;
@@ -163,4 +190,9 @@ a img {
 
 .formtastic {
   width: 35em;
+}
+
+img.avatar {
+  height: 60px;
+  width: 60px;
 }
