@@ -45,4 +45,18 @@ Feature: Creating New Jobs
     And I go to the job page for "Wash My Car"
     Then I should see "I want to help"
       
+  Scenario: Signing in after creating a new job for an existing account
+    Given an account for "pat@allan.com"
+    When I go to the home page
+    And I follow "I Want Help"
+    And I fill in "Title" with "Wash My Car"
+    And I fill in "Description" with "It's pretty muddy."
+    And I fill in "Your Name" with "Pat"
+    And I fill in "Email" with "pat@allan.com"
+    And I fill in "Duration" with "3"
+    And I press "Ask for Help"
+    And I fill in "Email" with "pat@allan.com"
+    And I fill in "Password" with "password"
+    And I press "Sign in"
+    Then I should see "Organisation name"
   
