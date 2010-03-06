@@ -9,3 +9,7 @@ Given /^the (\w+) indexes are processed$/ do |model|
   model = model.titleize.gsub(/\s/, '').constantize
   ThinkingSphinx::Test.index *model.sphinx_index_names
 end
+
+Then /^I should have (\d+) emails? from Two Bob's Worth$/ do |count|
+  ActionMailer::Base.deliveries.length == count.to_i
+end
