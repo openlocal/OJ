@@ -11,8 +11,8 @@
 		<h3>Your offers</h3>
 		<%= render :partial => 'offer', :collection => @help_offers, :locals => {:job_request => @job_request} %>
 		
-	<% else %>
-		<%= link_to 'I wanna help', new_job_request_help_offer_path(@job_request) %> |
+	<% elsif @job_request.status == "Open" %>
+		<%= link_to 'I want to help', new_job_request_help_offer_path(@job_request) %> |
 	<% end %>
 	<%= link_to 'Back', job_requests_path %>
 	

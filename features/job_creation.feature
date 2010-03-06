@@ -41,7 +41,8 @@ Feature: Creating New Jobs
   Scenario: Confirming new jobs when verified account
     Given a pending job "Wash My Car" by "pat@allan.com"
     When I verify the account for "pat@allan.com"
+    And I log out
     And I go to the job page for "Wash My Car"
-    Then I should see "Open"
+    Then I should see "I want to help"
       
   
