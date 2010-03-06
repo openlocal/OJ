@@ -1,0 +1,7 @@
+<h1>Two Bob's Worth</h1>
+
+<% form_tag "/search", :method => :get do %>
+  <label for="query">Search:</label>
+  <%= text_field_tag 'query', params[:query] %>
+  <input type="submit" value="Search" />
+<% end %>
