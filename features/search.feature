@@ -43,3 +43,11 @@ Feature: Searching for Job Requests
     And I press "Search"
     Then I should see "Mow my Lawn"
     And I should not see "Wash my Car"
+  
+  Scenario: Unable to view Pending Jobs
+    Given a pending job "Wash My Car"
+    And the job_request indexes are processed
+    When I go to the home page
+    And I search for "Car"
+    Then I should not see "Wash My Car"
+  
