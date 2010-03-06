@@ -1,5 +1,6 @@
 class JobRequest < ActiveRecord::Base
   belongs_to :user
+  has_many :help_offers
   has_and_belongs_to_many :categories
   
   before_create :set_user

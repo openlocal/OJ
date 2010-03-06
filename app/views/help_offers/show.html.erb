@@ -1,11 +1,11 @@
 <p>
   <b>User:</b>
-  <%=h @help_offer.user %>
+  <%=h @help_offer.user.email %>
 </p>
 
 <p>
   <b>Job request:</b>
-  <%=h @help_offer.job_request %>
+  <%=h @help_offer.job_request.title %>
 </p>
 
 <p>
@@ -13,16 +13,7 @@
   <%=h @help_offer.comment %>
 </p>
 
-<p>
-  <b>Accepted:</b>
-  <%=h @help_offer.accepted %>
-</p>
-
-<p>
-  <b>Response:</b>
-  <%=h @help_offer.response %>
-</p>
 
 
-<%= link_to 'Edit', edit_help_offer_path(@help_offer) %> |
-<%= link_to 'Back', help_offers_path %>
+<%= link_to 'Edit', edit_job_request_help_offer_path(@job_request, @help_offer) %> |
+<%= link_to 'Back', job_request_help_offers_path(@job_request) %>

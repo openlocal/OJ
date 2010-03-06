@@ -11,18 +11,18 @@
 
 <% @help_offers.each do |help_offer| %>
   <tr>
-    <td><%=h help_offer.user %></td>
-    <td><%=h help_offer.job_request %></td>
+    <td><%=h help_offer.user.email %></td>
+    <td><%=h help_offer.job_request.title %></td>
     <td><%=h help_offer.comment %></td>
     <td><%=h help_offer.accepted %></td>
     <td><%=h help_offer.response %></td>
-    <td><%= link_to 'Show', help_offer %></td>
-    <td><%= link_to 'Edit', edit_help_offer_path(help_offer) %></td>
-    <td><%= link_to 'Destroy', help_offer, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', job_request_help_offer_path(@job_request, help_offer) %></td>
+    <td><%= link_to 'Edit', edit_job_request_help_offer_path(@job_request, help_offer) %></td>
+    <td><%= link_to 'Destroy', job_request_help_offer_path(@job_request, help_offer), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New help_offer', new_help_offer_path %>
+<%= link_to 'New help_offer', new_job_request_help_offer_path(@job_request) %>
