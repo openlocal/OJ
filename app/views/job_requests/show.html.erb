@@ -30,7 +30,7 @@
 		<% if @job_request.help_offer_for_user(@user) %>
 			<div>You have made an offer for this request. (<%= link_to 'Edit', edit_job_request_help_offer_path(@job_request, @job_request.help_offer_for_user(@user)) %>)</div>
 		<% else %>
-			<%= link_to 'I want to help', new_job_request_help_offer_path(@job_request) %> |
+			<%= link_to 'I can help', new_job_request_help_offer_path(@job_request) %> |
 		<% end %>
 		
 		
