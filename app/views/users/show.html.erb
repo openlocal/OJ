@@ -1,5 +1,5 @@
 <div class="my_profile" style="float: left; width: 400px">
-<h1>My Profile</h1>
+<h1><%= @user.name %>'s Profile</h1>
 <div class="real_name">
 Name:	<%= @user.real_name %>
 </div>
@@ -8,27 +8,29 @@ Email:	<%= @user.email %>
 </div>
 
 <div class="skills">
-My Skills: <%= @user.skills %>
+Skills: <%= @user.skills %>
 </div>
 <div class="reason">
 Reasons for helping: <%= @user.reason%>
 </div>
 <div class="my_job">
-My day job: <%= @user.my_job %>
+Day job: <%= @user.my_job %>
 </div>
 <div class="website">
-My website: <%= @user.website %>
+Website: <%= @user.website %>
 </div>
 <div class="about_me">
-About me: <%= @user.about_me %>
+About: <%= @user.about_me %>
 </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
-<ul>
-  <% @user.job_requests.each do |job| %>
-    <li><%= link_to job.title, job %></li>
-  <% end %>
-</ul>
+<% if @user == current_user %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+  <ul>
+    <% @user.job_requests.each do |job| %>
+      <li><%= link_to job.title, job %></li>
+    <% end %>
+  </ul>
+<% end %>
 </div>
 
 <div style="float: left"><%= image_tag "http://www.gravatar.com/avatar/" + Digest::MD5.hexdigest(@user.email) + "?d=identicon&r=g" %></div>
