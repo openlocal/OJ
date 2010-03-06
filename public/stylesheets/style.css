@@ -122,6 +122,16 @@ h3 {
 	line-height: 1.5;
 	font-family: "nevis", "Rockwell", Verdana;
 	text-align: center;
+	-moz-border-top-left-radius: 0.5em;
+	-webkit-border-top-left-radius: 0.5em;
+	-moz-border-top-right-radius: 0.5em;
+	-webkit-border-top-right-radius: 0.5em;
+}
+
+h4, h4 a, h4 a:visited {
+  color: #000;
+  font-family: "nevis", "Rockwell", Verdana;
+  font-size: 1.2em;
 }
 
 p span.name{

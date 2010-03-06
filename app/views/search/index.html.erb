@@ -12,7 +12,9 @@
 	<h3>Upcoming Opportunities</h3>
 	
 	<% @requests.each do |job| %>
-  	<p><img src="images/green_button1.png" width="67" height="67" class="floatLeft"><strong><%= job.title %></strong><br />
+  	<p>
+  	  <img src="images/green_button1.png" width="67" height="67" class="floatLeft">
+  	  <h4><%= link_to job.title, job %></h4>
       <%= job.description %></p>
       <%= link_to "More info...", job, :class => 'readmore' %>
 			<div class="spacer"></div>
