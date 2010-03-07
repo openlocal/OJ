@@ -3,10 +3,13 @@
  		<h3>Upcoming Opportunities</h3>
  		
  		<% @open.each do |job| %>
-    	<p><img src="images/green_button1.png" width="67" height="67" class="floatLeft"><strong><%= job.title %></strong><br />
+    	<div>
+    	  <span class="duration-box duration<%= job.duration %>"><%= job.duration %></span>
+    	  <h4><%= link_to job.title, job %></h4>
         <%= job.description %></p>
         <%= link_to "More info...", job, :class => 'readmore' %>
 				<div class="spacer"></div>
+			</div>
 		<% end %>
     </div><!-- end #opportunities -->        
  </div><!-- end .left -->
@@ -15,14 +18,16 @@
       	<h3>Recent Helpers</h3>
       	
       	<% @completed.each do |job| %>
-      		<img src="images/image1.gif" width="67" height="67" class="floatLeft"><p><span class="name"><%= job.feedback.help_offer.user.name %></span><br /><%= job.title %></p>
+      	  <%= gravatar job.feedback.help_offer.user.email, 'floatLeft avatar' %>
+      		<p><span class="name"><%= job.feedback.help_offer.user.name %></span><br /><%= job.title %></p>
 	 			<div class="spacer">&nbsp;</div>
 	 			<% end %>
  	</div><!-- end #recent_helpers -->
        <div id="thankyou_notes">
       	<h3>Thank You Notes</h3>
       	<% @feedbacks.each do |feedback| %>
-        	<p><img src="images/notes_image1.gif" width="89" height="90" class="floatLeft"><strong><%= feedback.job_request.title %></strong><br />
+      	  <%= gravatar feedback.job_request.user.email, 'floatLeft avatar' %>
+        	<p><strong><%= feedback.job_request.title %></strong><br />
           <%= feedback.notes %></p>
  			 	  <%= link_to "More info...", feedback.job_request, :class => 'readmore' %>
           <div class="spacer"></div>
