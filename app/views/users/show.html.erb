@@ -24,7 +24,12 @@
   
   <h3>Thank You Notes</h3>
   <% @feedbacks.each do |feedback| %>
-    <h4><%= link_to feedback.job_request.title, feedback.job_request %></h4>
+    <%= gravatar feedback.job_request.user.email, 'mini' %>
+    <h4>
+      <%= link_to feedback.job_request.title, feedback.job_request %>
+      from
+      <%= link_to feedback.job_request.user.name, feedback.job_request.user %>
+    </h4>
     <p><%= feedback.notes %></p>
   <% end %>
 </div>
