@@ -35,12 +35,14 @@
 		<% end %>
 	<% elsif @job_request.status == "open" %>
 		<% if @job_request.help_offer_for_user(@user) %>
+			<br/>
 			<div>You have made an offer for this request. (<%= link_to 'Edit', edit_job_request_help_offer_path(@job_request, @job_request.help_offer_for_user(@user)) %>)</div>
 		<% else %>
 			<br/>
 			<%= link_to 'I Can Help', new_job_request_help_offer_path(@job_request), :class => 'icanhelpLink' %>
 		<% end %>
 	<% else %>
+		<br/>
 		<% user_offer = @job_request.help_offer_for_user(@user) %>
 		<% if user_offer %>
 			<% if @job_request.status == "accepted" && user_offer.accepted %>
