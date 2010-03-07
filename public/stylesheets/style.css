@@ -192,6 +192,12 @@ a img {
   width: 35em;
 }
 
+.formtastic fieldset.inputs,
+.formtastic fieldset.inputs ol,
+.formtastic fieldset.inputs ol li {
+  width: 100%;
+}
+
 img.avatar {
   height: 60px;
   width: 60px;
