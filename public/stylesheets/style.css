@@ -171,6 +171,21 @@ h3 {
   background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#D54E04), to(#ED9603));
 }
 
+.duration4 {
+  background-color: #2A00ED;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#2A00ED), to(#4E58ED));
+}
+
+.duration5 {
+  background-color: #8B14ED;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#8B14ED), to(#651AED));
+}
+
+.duration8 {
+  background-color: #09B1ED;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#09B1ED), to(#3385ED));
+}
+
 h4, h4 a, h4 a:visited {
   color: #000;
   font-family: "nevis", "Rockwell", Verdana;
