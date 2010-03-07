@@ -19,7 +19,8 @@
       	
       	<% @completed.each do |job| %>
       	  <%= gravatar job.feedback.help_offer.user.email, 'floatLeft avatar' %>
-      		<p><span class="name"><%= job.feedback.help_offer.user.name %></span><br /><%= job.title %></p>
+      		<h4><%= link_to job.feedback.help_offer.user.name, job.feedback.help_offer.user %></h4>
+      		<p><%= link_to job.title, job %></p>
 	 			<div class="spacer">&nbsp;</div>
 	 			<% end %>
  	</div><!-- end #recent_helpers -->
@@ -27,8 +28,8 @@
       	<h3>Thank You Notes</h3>
       	<% @feedbacks.each do |feedback| %>
       	  <%= gravatar feedback.job_request.user.email, 'floatLeft avatar' %>
-        	<p><strong><%= feedback.job_request.title %></strong><br />
-          <%= feedback.notes %></p>
+        	<h4><%= link_to feedback.job_request.title, feedback.job_request %></h4>
+          <p><%= feedback.notes %></p>
  			 	  <%= link_to "More info...", feedback.job_request, :class => 'readmore' %>
           <div class="spacer"></div>
         <% end %>
