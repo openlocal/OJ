@@ -1,4 +1,7 @@
 class JobRequest < ActiveRecord::Base
+  HourOptions = [["1 hour", 1], ["2 hours", 2], ["3 hours", 3], ["4 hours", 4],
+    ["5 hours", 5], ["1 day", 8]]
+  
   belongs_to :user
   has_many :help_offers
   has_and_belongs_to_many :categories
