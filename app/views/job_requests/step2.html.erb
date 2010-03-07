@@ -1,17 +1,19 @@
+<h3>Additional Steps</h3>
 <% semantic_form_for :job_request, @job_request, :url => job_request_path(@job_request), :html => {:method => :put} do |form| %>
   <% form.inputs do %>
   <%= form.input :organisation_name  %>
   <%= form.input :phone_number  %>
   <%= form.input :category_string, :label => 'Categories', :hint => 'Separate multiple categories with commas.' %>
 
-  <%= radio_button_tag 'time_period', 'today' %>today<br/>
-  <%= radio_button_tag 'time_period', 'next-days' %>next few days<br/>
-  <%= radio_button_tag 'time_period', 'this-week' %>this week<br/> 
-  <%= radio_button_tag 'time_period', 'this-month' %>this month<br/>
+  When do you need help?<br/><br/>
+  <%= radio_button_tag 'time_period', 'today' %>&nbsp;Today<br/>
+  <%= radio_button_tag 'time_period', 'next-days' %>&nbsp;Next few days<br/>
+  <%= radio_button_tag 'time_period', 'this-week' %>&nbsp;This week<br/> 
+  <%= radio_button_tag 'time_period', 'this-month' %>&nbsp;This month<br/>
   or the time frame below:<br/>
-  
-  <%= form.input :start_at %>
-  <%= form.input :end_at %>
+  <br/>
+  <%= form.input :start_at, :label => 'Start' %>
+  <%= form.input :end_at, :label => 'End' %>
   <% end %>
   <% form.buttons do %>
     <%= form.commit_button "Add Info" %>
