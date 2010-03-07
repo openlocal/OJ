@@ -153,7 +153,11 @@ h3 {
   -moz-border-radius: 0.25em;
   -webkit-border-radius: 0.25em;
   text-align: center;
-  font-family: "Baskerville", Verdana;
+  color: #fff;
+  font-weight: bold;
+  -webkit-text-stroke: 0.5px #000000;
+  -webkit-text-fill-color: #FFFFFF
+  font-family: "Futura", Verdana;
   -webkit-box-shadow: 2px 2px 2px #333333
   -moz-box-shadow: 2px 2px 2px #333333
 }
