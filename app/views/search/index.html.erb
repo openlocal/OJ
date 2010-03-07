@@ -12,11 +12,13 @@
 	<h3>Upcoming Opportunities</h3>
 	
 	<% @requests.each do |job| %>
-	  <span class="duration-box duration<%= job.duration %>"><%= job.duration %></span>
-	  <h4><%= link_to job.title, job %></h4>
-    <%= job.description %></p>
-    <%= link_to "More info...", job, :class => 'readmore' %>
-		<div class="spacer"></div>
+		<div class="search_result">
+	  		<span class="duration-box duration<%= job.duration %>"><%= job.duration %></span>
+	  		<h4><%= link_to job.title, job %></h4>
+    		<div class="description"><%= job.description %></div>
+    		<%= link_to "More info...", job, :class => 'readmore' %>
+			<div class="spacer"></div>
+		</div><!-- .search_result-->
 	<% end %>
   </div>
 
