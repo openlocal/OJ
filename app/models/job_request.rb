@@ -20,6 +20,7 @@ class JobRequest < ActiveRecord::Base
     indexes categories.name, :as => :categories
     
     has "status = 'pending'", :type => :boolean, :as => :is_pending
+    has "status = 'open'",    :type => :boolean, :as => :is_open
     has duration
     
     set_property :delta => true
