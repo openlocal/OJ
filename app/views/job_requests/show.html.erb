@@ -1,5 +1,6 @@
 <div style="float:left">
 	<h2><%=h @job_request.title %></h2>
+	<div>By <%= link_to @job_request.user.name, @job_request.user %></div>
 	<div><%=h @job_request.description %></div>
 	<div>Location: <%=h @job_request.location %></div>
 	<div>When: <%=h @job_request.start_at.to_s %> till <%=h @job_request.end_at.to_s %></div>
