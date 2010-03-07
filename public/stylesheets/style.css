@@ -138,6 +138,7 @@ h3 {
 	line-height: 1.5;
 	font-family: "nevis", "Rockwell", Verdana;
 	text-align: center;
+	clear: right;
 	-moz-border-top-left-radius: 0.5em;
 	-webkit-border-top-left-radius: 0.5em;
 	-moz-border-top-right-radius: 0.5em;
@@ -261,6 +262,13 @@ a img {
 img.avatar {
   height: 60px;
   width: 60px;
+}
+
+img.mini {
+  height: 60px;
+  width: 60px;
+  float: right;
+  margin-right: 2px;
 }
 
 dd {
