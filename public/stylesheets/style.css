@@ -236,7 +236,8 @@ a img {
     position: relative; 
     top: -182px;
     left: 165px;
-   
+    font-style: italic;
+    color: gray;
     width:142px;
     
 }
@@ -246,7 +247,8 @@ a img {
     position: relative; 
     top: -235px;
     left: 519px;
-    
+    font-style: italic;
+    color: gray;
     width: 142px;
 }
 
