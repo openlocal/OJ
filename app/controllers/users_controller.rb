@@ -1,6 +1,10 @@
 class UsersController < Clearance::UsersController
   def show
     @profile = User.find params[:id]
+    
+    @feedbacks = @profile.help_offers.collect { |offer| offer.feedback }.compact
+    length     = @feedbacks.empty? ? 1 : @feedbacks.length
+    @rating    = @feedbacks.collect { |fb| fb.rating }.sum / length.to_f
   end
   
   def update

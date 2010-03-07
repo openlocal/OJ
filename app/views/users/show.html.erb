@@ -1,38 +1,55 @@
-<div class="my_profile" style="float: left; width: 400px">
-<h1><%= @profile.name %>'s Profile</h1>
-<div class="real_name">
-Name:	<%= @profile.real_name %>
+<div class="my_profile">
+  <h2><%= @profile.name %>'s Profile</h2>
+
+  <dl>
+    <% if @profile == current_user %>
+      <dt>Email</dt>
+      <dd><%= @profile.email %>
+    <% end %>
+    <dt>Skills</dt>
+    <dd><%= @profile.skills %>&nbsp;</dd>
+    <dt>Reasons for Helping</dt>
+    <dd><%= @profile.reason %>&nbsp;</dd>
+    <dt>Job</dt>
+    <dd><%= @profile.my_job %>&nbsp;</dd>
+    <dt>Website</dt>
+    <dd><%= @profile.website %>&nbsp;</dd>
+    <dt>About</dt>
+    <dd><%= @profile.about_me %>&nbsp;</dd>
+  </dl>
+  
+  <h3>Thank You Notes</h3>
+  <% @feedbacks.each do |feedback| %>
+    
+  <% end %>
 </div>
+
+<div class="secondary">
+  <div><%= gravatar @profile.email %></div>
+  
+  Average Rating: <%= @rating %>
+  
+  <h3>Help Given</h3>
+  <% @profile.help_offers.accepted.each do |offer| %>
+    <h4><%= offer.job_request.title %></h4>
+ 	  <%= link_to "More info...", offer.job_request, :class => 'readmore' %>
+  <% end %>
+  
+  <h3>Help Requested</h3>
+  <% @profile.job_requests.each do |job| %>
+    <h4><%= job.title %></h4>
+ 	  <%= link_to "More info...", job, :class => 'readmore' %>
+  <% end %>
+  
+</div>
+
 <% if @profile == current_user %>
-  <div class="email">
-  Email:	<%= @profile.email %>
+  <div class="editing">
+    <%= link_to 'Edit', edit_user_path(@profile) %>
+    <ul>
+      <% @profile.job_requests.each do |job| %>
+        <li><%= link_to job.title, job %></li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
-
-<div class="skills">
-Skills: <%= @profile.skills %>
-</div>
-<div class="reason">
-Reasons for helping: <%= @profile.reason%>
-</div>
-<div class="my_job">
-Day job: <%= @profile.my_job %>
-</div>
-<div class="website">
-Website: <%= @profile.website %>
-</div>
-<div class="about_me">
-About: <%= @profile.about_me %>
-</div>
-
-<% if @profile == current_user %>
-  <%= link_to 'Edit', edit_user_path(@profile) %>
-  <ul>
-    <% @profile.job_requests.each do |job| %>
-      <li><%= link_to job.title, job %></li>
-    <% end %>
-  </ul>
-<% end %>
-</div>
-
-<div style="float: left"><%= gravatar @profile.email %></div>

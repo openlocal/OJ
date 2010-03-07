@@ -39,6 +39,22 @@ div.left {
 	width: 370px;
 	padding-right: 22px;
 }
+
+div.my_profile {
+  float: left;
+  width: 500px;
+  padding-right: 22px;
+}
+
+div.secondary {
+  float: left;
+  width: 300px;
+}
+
+div.editing {
+  padding-top: 1.5em;
+  clear: left;
+}
   
 div.right {
 	float: right;
@@ -201,4 +217,23 @@ a img {
 img.avatar {
   height: 60px;
   width: 60px;
+}
+
+dd {
+  width: 30em;
+}
+
+dt {
+  float: left;
+  width: 12em;
+}
+
+dt:after {
+  content: ':';
+}
+
+dd {
+  display: block;
+  margin-left: 12em;
+  width: 18em;
 }
