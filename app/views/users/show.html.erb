@@ -24,7 +24,8 @@
   
   <h3>Thank You Notes</h3>
   <% @feedbacks.each do |feedback| %>
-    
+    <h4><%= link_to feedback.job_request.title, feedback.job_request %></h4>
+    <p><%= feedback.notes %></p>
   <% end %>
 </div>
 
@@ -34,9 +35,9 @@
   Average Rating: <%= @rating %>
   
   <h3>Help Given</h3>
-  <% @profile.help_offers.accepted.each do |offer| %>
-    <h4><%= link_to offer.job_request.title offer.job_request %></h4>
- 	  <%= link_to "More info...", offer.job_request, :class => 'readmore' %>
+  <% @feedbacks.each do |feedback| %>
+    <h4><%= link_to feedback.job_request.title, feedback.job_request %></h4>
+ 	  <%= link_to "More info...", feedback.job_request, :class => 'readmore' %>
   <% end %>
   
   <h3>Help Requested</h3>
