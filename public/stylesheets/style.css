@@ -303,3 +303,12 @@ dd {
     font-size: 25px;
     color: green;
 }
+
+#help_offer_comment {
+    width: 600px;
+    height: 100px;
+}
+
+#new_help_offer {
+    width: 100%;
+}
