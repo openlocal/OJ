@@ -298,3 +298,8 @@ dd {
     font-family: "nevis","Rockwell",Verdana;
     text-decoration: underline;
 }
+
+.icanhelpLink {
+    font-size: 25px;
+    color: green;
+}

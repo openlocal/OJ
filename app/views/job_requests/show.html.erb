@@ -5,7 +5,9 @@
 	<div><span class="showRequestLabel">Location:</span> <%=h @job_request.location %></div>
 	<div><span class="showRequestLabel">When:</span> <%=h @job_request.start_at.to_s %> till <%=h @job_request.end_at.to_s %></div>
 	<div><span class="showRequestLabel">Duration:</span> <%=h @job_request.duration %></div>
-	<div><span class="showRequestLabel">Categories:</span> <%= @job_request.categories.collect{|c| link_to(c.name, url_for(:controller => 'search', :query => c.name))}.join(', ')%></div>
+	<% unless @job_request.categories.blank? %>
+		<div><span class="showRequestLabel">Categories:</span> <%= @job_request.categories.collect{|c| link_to(c.name, url_for(:controller => 'search', :query => c.name))}.join(', ')%></div>
+	<% end %>
 	
 	<% if @user == @job_request.user %>
 		<%= link_to 'Edit', edit_job_request_path(@job_request) %>
@@ -35,7 +37,8 @@
 		<% if @job_request.help_offer_for_user(@user) %>
 			<div>You have made an offer for this request. (<%= link_to 'Edit', edit_job_request_help_offer_path(@job_request, @job_request.help_offer_for_user(@user)) %>)</div>
 		<% else %>
-			<%= link_to 'I can help', new_job_request_help_offer_path(@job_request) %> |
+			<br/>
+			<%= link_to 'I Can Help', new_job_request_help_offer_path(@job_request), :class => 'icanhelpLink' %> |
 		<% end %>
 	<% else %>
 		<% user_offer = @job_request.help_offer_for_user(@user) %>
