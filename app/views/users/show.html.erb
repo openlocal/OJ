@@ -1,6 +1,10 @@
 <div class="my_profile">
   <h2><%= @profile.name %>'s Profile</h2>
 
+  <% if @profile == current_user %>
+    <%= link_to 'Edit', edit_user_path(@profile) %>
+  <% end %>
+
   <dl>
     <% if @profile == current_user %>
       <dt>Email</dt>
@@ -31,25 +35,13 @@
   
   <h3>Help Given</h3>
   <% @profile.help_offers.accepted.each do |offer| %>
-    <h4><%= offer.job_request.title %></h4>
+    <h4><%= link_to offer.job_request.title offer.job_request %></h4>
  	  <%= link_to "More info...", offer.job_request, :class => 'readmore' %>
   <% end %>
   
   <h3>Help Requested</h3>
   <% @profile.job_requests.each do |job| %>
-    <h4><%= job.title %></h4>
+    <h4><%= link_to job.title, job %></h4>
  	  <%= link_to "More info...", job, :class => 'readmore' %>
-  <% end %>
-  
+  <% end %>  
 </div>
-
-<% if @profile == current_user %>
-  <div class="editing">
-    <%= link_to 'Edit', edit_user_path(@profile) %>
-    <ul>
-      <% @profile.job_requests.each do |job| %>
-        <li><%= link_to job.title, job %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
