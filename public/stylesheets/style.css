@@ -154,3 +154,28 @@ a img {
 .formtastic {
   width: 35em;
 }
+
+#speech {
+    float: left;
+    font-size: 11px;
+    height: 0px;
+}
+
+#speech_left {
+
+    position: relative; 
+    top: -182px;
+    left: 165px;
+   
+    width:142px;
+    
+}
+
+#speech_right {
+
+    position: relative; 
+    top: -242px;
+    left: 519px;
+    
+    width: 142px;
+}
