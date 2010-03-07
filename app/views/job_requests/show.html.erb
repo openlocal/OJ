@@ -1,11 +1,11 @@
-<div style="float:left">
-	<h2><%=h @job_request.title %></h2>
+<div style="float:left; width: 450px;">
+	<h3><%=h @job_request.title %></h3>
 	<div>By <%= link_to @job_request.user.name, @job_request.user %></div>
 	<div><%=h @job_request.description %></div>
-	<div>Location: <%=h @job_request.location %></div>
-	<div>When: <%=h @job_request.start_at.to_s %> till <%=h @job_request.end_at.to_s %></div>
-	<div>Duration <%=h @job_request.duration %></div>
-	<div>Categories: <%= @job_request.categories.collect{|c| link_to(c.name, url_for(:controller => 'search', :query => c.name))}.join(', ')%></div>
+	<div><span class="showRequestLabel">Location:</span> <%=h @job_request.location %></div>
+	<div><span class="showRequestLabel">When:</span> <%=h @job_request.start_at.to_s %> till <%=h @job_request.end_at.to_s %></div>
+	<div><span class="showRequestLabel">Duration:</span> <%=h @job_request.duration %></div>
+	<div><span class="showRequestLabel">Categories:</span> <%= @job_request.categories.collect{|c| link_to(c.name, url_for(:controller => 'search', :query => c.name))}.join(', ')%></div>
 	
 	<% if @user == @job_request.user %>
 		<%= link_to 'Edit', edit_job_request_path(@job_request) %>
@@ -59,7 +59,7 @@
 	
 </div>
 <% unless @job_request.location.blank? %>
-	<div id="mapDiv" style="width: 500px; height: 300px; float: right;"></div>
+	<div id="mapDiv" style="width: 350px; height: 300px; float: right;"></div>
 	<script src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=ABQIAAAAqm3plPiVC08Elzbvz5evNhQBfxIGZNV-NsOc5lSFaBmyHzROvBSZKhvNqHev5OBe9ZK8xPO9WTZ73A" type="text/javascript"></script> 
 	<script type="text/javascript"> 
 		var map = null;
