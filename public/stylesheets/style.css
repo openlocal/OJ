@@ -154,6 +154,7 @@ h3 {
   text-align: center;
   font-family: "Baskerville", Verdana;
   -webkit-box-shadow: 2px 2px 2px #333333
+  -moz-box-shadow: 2px 2px 2px #333333
 }
 
 .duration1 {
