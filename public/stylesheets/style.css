@@ -208,6 +208,32 @@ a img {
   width: 35em;
 }
 
+
+#speech {
+    float: left;
+    font-size: 11px;
+    height: 0px;
+}
+
+#speech_left {
+
+    position: relative; 
+    top: -182px;
+    left: 165px;
+   
+    width:142px;
+    
+}
+
+#speech_right {
+
+    position: relative; 
+    top: -235px;
+    left: 519px;
+    
+    width: 142px;
+}
+
 .formtastic fieldset.inputs,
 .formtastic fieldset.inputs ol,
 .formtastic fieldset.inputs ol li {

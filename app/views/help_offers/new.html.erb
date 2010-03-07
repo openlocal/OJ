@@ -1,4 +1,4 @@
-<h1>New help_offer</h1>
+<h1>I can help with: <%= @job_request.title %></h1>
 
 <% semantic_form_for [@job_request, @help_offer] do |form| %>
 	<%= form.inputs :comment  %>
