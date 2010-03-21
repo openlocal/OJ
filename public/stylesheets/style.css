@@ -312,3 +312,7 @@ dd {
 #new_help_offer {
     width: 100%;
 }
+
+#search_form {
+    text-align: right;
+}

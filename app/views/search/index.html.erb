@@ -1,3 +1,4 @@
+<div id = 'search_form'>
 <% form_tag "/search", :method => :get do %>
   <label for="query">Search:</label>
   <%= text_field_tag 'query', params[:query] %>
@@ -7,7 +8,7 @@
 <% if @requests.empty? %>
   <p>There are no matches for your search query</p>
 <% else %>
-
+</div>
 <div id="opportunities">
 	<h3>Upcoming Opportunities</h3>
 	
