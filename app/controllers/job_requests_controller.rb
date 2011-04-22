@@ -123,7 +123,7 @@ class JobRequestsController < ApplicationController
   
   def cancel_accept
     @job_request = JobRequest.find(params[:id])
-    redirect_to(@job_request) unless @job_request.accepted_offer
+    redirect_to(@job_request) and return unless @job_request.accepted_offer
     offer = @job_request.accepted_offer
     offer.accepted = false
     offer.save!
